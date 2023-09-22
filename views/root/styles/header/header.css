@@ -1,0 +1,68 @@
+header {
+  z-index: 3;
+  width: 100%;
+  background: white;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+header > div:first-of-type {
+  padding-top: 11.2px;
+  padding-bottom: 8px;
+  border-bottom: solid 4px var(--red);
+}
+
+header > div:first-of-type > div:first-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header > div:first-of-type > div:first-of-type > a:first-of-type img {
+  height: 64px;
+}
+
+header > div:first-of-type > div:first-of-type > button:first-of-type {
+  color: var(--red);
+  font-size: 20px;
+}
+
+header > div:first-of-type > div:nth-of-type(2) {
+  height: 0px;
+  overflow: hidden;
+  -webkit-transition: ease-in-out 0.35s;
+  transition: ease-in-out 0.35s;
+}
+
+header > div:first-of-type > div:nth-of-type(2) > div {
+  padding: 10.4px 0px;
+}
+
+header > div:first-of-type > div:nth-of-type(2) > div ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10.4px;
+}
+
+header > div:first-of-type > div:nth-of-type(2) > div ul li a {
+  color: var(--dark-gray);
+  -webkit-transition: ease-in-out 0.35s;
+  transition: ease-in-out 0.35s;
+}
+
+header > div:first-of-type > div:nth-of-type(2) > div ul li a:hover {
+  color: var(--red);
+}
+/*# sourceMappingURL=header.css.map */
