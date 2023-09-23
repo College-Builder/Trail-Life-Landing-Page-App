@@ -1,11 +1,31 @@
 (() => {
-    const menu = window.document.querySelector("div[mobile-header-menu]")
-    const button = window.document.querySelector("button[mobile-header-menu-button]")
-    let active = false
+  const menu = window.document.querySelector('div[mobile-header-menu]');
+  const buttonFull = window.document.querySelector(
+    'button[mobile-header-menu-button--full]',
+  );
+  const buttonClose = window.document.querySelector(
+    'button[mobile-header-menu-button--close]',
+  );
 
-    button.addEventListener("click", () => {
-        menu.style.height = active ? `${menu.scrollHeight}px` : "0px"
+  let active;
 
-        active = !active
-    })
-})()
+  buttonFull.addEventListener('click', () => {
+    active ? closeMenu() : openMenu();
+  });
+
+  buttonClose.addEventListener('click', () => {
+    closeMenu();
+  });
+
+  function openMenu() {
+    menu.style.height = `${menu.scrollHeight}px`;
+    active = true;
+    buttonClose.classList.remove('--off');
+  }
+
+  function closeMenu() {
+    menu.style.height = '0px';
+    active = false;
+    buttonClose.classList.add('--off');
+  }
+})();

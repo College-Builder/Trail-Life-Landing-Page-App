@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,IAAI;AAEJ,AAAA,oBAAoB,CAAC;EACjB,aAAa,EAAE,IAAI;EACnB,YAAY,EAAE,IAAI;CACrB",
-    "sources": [
-        "controller.scss"
-    ],
-    "names": [],
-    "file": "controller.css"
-}
+{"version":3,"sourceRoot":"","sources":["controller.scss"],"names":[],"mappings":"AAAA;EACE;EACA;;;AAGF;EACE;IACE;IACA","file":"controller.css"}

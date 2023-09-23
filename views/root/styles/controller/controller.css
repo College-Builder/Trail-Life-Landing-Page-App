@@ -1,6 +1,13 @@
-/**/
 .global__hrz-padding {
   padding-right: 28px;
   padding-left: 28px;
 }
+
+@media (min-width: 350px) {
+  .global__hrz-padding {
+    padding-right: 36px;
+    padding-left: 36px;
+  }
+}
+
 /*# sourceMappingURL=controller.css.map */
