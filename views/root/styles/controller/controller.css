@@ -9,5 +9,11 @@
     padding-left: 36px;
   }
 }
+@media (min-width: 600px) {
+  .global__hrz-padding {
+    padding-right: 72px;
+    padding-left: 72px;
+  }
+}
 
 /*# sourceMappingURL=controller.css.map */
