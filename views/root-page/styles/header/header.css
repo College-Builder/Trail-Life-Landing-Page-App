@@ -1,0 +1,136 @@
+header {
+  z-index: 4;
+  width: 100%;
+  background: white;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+header > div:first-of-type {
+  padding-top: 31.2px;
+  padding-bottom: 24px;
+  border-bottom: solid 4px var(--red);
+}
+header > div:first-of-type > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header > div:first-of-type > div:first-of-type > a img {
+  height: 24px;
+}
+header > div:first-of-type > div:first-of-type > button {
+  color: var(--red);
+  font-size: 22.4px;
+}
+header > div:first-of-type > div:first-of-type > ul {
+  display: none;
+  gap: 28px;
+}
+header > div:first-of-type > div:first-of-type > ul a {
+  font-weight: 500;
+  color: var(--dark-gray);
+  transition: ease-in-out 0.35s;
+  font-size: 16.8px;
+  position: relative;
+}
+header > div:first-of-type > div:first-of-type > ul a:hover {
+  color: var(--red);
+}
+header > div:first-of-type > div:first-of-type > ul a:hover::after {
+  width: 100%;
+}
+header > div:first-of-type > div:first-of-type > ul a::after {
+  content: "";
+  width: 0%;
+  height: 3.2px;
+  background-color: var(--red);
+  position: absolute;
+  left: 0px;
+  bottom: -4px;
+  transition: ease-in-out 0.4s;
+}
+header > div:first-of-type > div:nth-of-type(2) {
+  height: 0px;
+  overflow: hidden;
+  transition: ease-in-out 0.35s;
+  position: relative;
+}
+header > div:first-of-type > div:nth-of-type(2) > div {
+  padding: 28px 4px 0px 4px;
+}
+header > div:first-of-type > div:nth-of-type(2) > div ul {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0px;
+  gap: 24px;
+}
+header > div:first-of-type > div:nth-of-type(2) > div ul li a {
+  font-weight: 500;
+  color: var(--dark-gray);
+  transition: ease-in-out 0.35s;
+  font-size: 16.8px;
+}
+header > div:first-of-type > div:nth-of-type(2) > div ul li a:hover {
+  color: var(--red);
+}
+header > div:first-of-type > div:nth-of-type(2) > div ul li a i {
+  width: 28px;
+  text-align: center;
+}
+
+button[mobile-header-menu-button--close] {
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  filter: opacity(40%);
+  background-color: black;
+  position: absolute;
+  transition: ease-in-out 0.35s;
+}
+button[mobile-header-menu-button--close].--off {
+  pointer-events: none;
+  filter: opacity(0%);
+}
+
+@media (min-width: 375px) {
+  header > div:first-of-type > div:first-of-type > a img {
+    height: 28px;
+  }
+  header > div:first-of-type > div:first-of-type > button {
+    font-size: 24px;
+  }
+}
+@media (min-width: 856px) {
+  header > div:first-of-type > div:first-of-type > button {
+    display: none;
+  }
+  header > div:first-of-type > div:first-of-type > ul {
+    display: flex;
+  }
+  header > div:first-of-type > div:nth-of-type(2) {
+    display: none;
+  }
+  button[mobile-header-menu-button--close] {
+    display: none;
+  }
+}
+@media (min-width: 1000px) {
+  header > div:first-of-type > div:first-of-type > a img {
+    height: 32px;
+  }
+  header > div:first-of-type > div:first-of-type > ul a {
+    font-size: 18.4px;
+  }
+  header > div:first-of-type > div:first-of-type > ul a i {
+    width: 28px;
+    text-align: center;
+  }
+}
+@media (min-width: 1200px) {
+  header > div:first-of-type > div:first-of-type > ul {
+    gap: 40px;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */

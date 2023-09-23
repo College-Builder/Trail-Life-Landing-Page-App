@@ -1,29 +1,25 @@
 :root {
-  --red: #B20C30;
-  --yellow: #FF9900;
-  --light-gray: #F8F8F8;
+  --red: #b20c30;
+  --yellow: #ff9900;
+  --light-gray: #f8f8f8;
   --dark-gray: rgb(51, 51, 51);
 }
 
 * {
   padding: 0px;
   margin: 0px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: 'Fira Sans', sans-serif;
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif;
   scrollbar-width: none;
 }
-
 *::-webkit-scrollbar {
   width: 17.5px;
 }
-
 *::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 70px;
   border: 4.9px solid white;
 }
-
 *::-webkit-scrollbar-track {
   background-color: var(--m-white);
 }
@@ -80,6 +76,7 @@ button {
 a {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  text-decoration: none;
+  text-decoration: none !important;
 }
+
 /*# sourceMappingURL=index.css.map */

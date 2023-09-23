@@ -13,6 +13,12 @@
     active ? closeMenu() : openMenu();
   });
 
+  menu.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      closeMenu();
+    });
+  });
+
   buttonClose.addEventListener('click', () => {
     closeMenu();
   });

@@ -1,8 +1,8 @@
 :root {
-    --red: #B20C30;
-    --yellow: #FF9900;
-    --light-gray: #F8F8F8;
-    --dark-gray: rgb(51, 51, 51);
+	--red: #b20c30;
+	--yellow: #ff9900;
+	--light-gray: #f8f8f8;
+	--dark-gray: rgb(51, 51, 51);
 }
 
 * {
@@ -23,7 +23,7 @@
 	padding: 0px;
 	margin: 0px;
 	box-sizing: border-box;
-    font-family: 'Fira Sans', sans-serif;
+	font-family: 'Fira Sans', sans-serif;
 	scrollbar-width: none;
 }
 
@@ -79,5 +79,5 @@ button {
 a {
 	cursor: pointer;
 	-webkit-tap-highlight-color: transparent;
-	text-decoration: none;
+	text-decoration: none !important;
 }

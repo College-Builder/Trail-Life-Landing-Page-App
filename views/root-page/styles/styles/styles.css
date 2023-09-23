@@ -1,0 +1,17 @@
+.--red-button {
+  background-color: transparent;
+  color: var(--red);
+  border: 2px solid var(--red);
+  transition: ease-in-out 0.35s;
+}
+
+.default-button {
+  width: 100%;
+  border-radius: 16px;
+  padding: 8px;
+  font-size: 20px;
+  font-weight: light;
+  text-align: center;
+}
+
+/*# sourceMappingURL=styles.css.map */
