@@ -118,6 +118,9 @@ div.section-3 {
 
 @media (min-width: 900px) {
 	div.section-3 {
+		padding-top: 160px;
+		padding-bottom: 160px;
+
 		& > div {
 			display: grid;
 			gap: 56px;

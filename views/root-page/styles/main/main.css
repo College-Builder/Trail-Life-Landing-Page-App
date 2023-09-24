@@ -97,6 +97,10 @@ div.section-3 > div div h3 {
 }
 
 @media (min-width: 900px) {
+  div.section-3 {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
   div.section-3 > div {
     display: grid;
     gap: 56px;
