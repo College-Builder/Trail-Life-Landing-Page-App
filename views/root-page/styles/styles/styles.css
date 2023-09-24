@@ -53,5 +53,8 @@ div.default-input textarea {
   font-size: 16px;
   padding: 16px;
 }
+div.default-input textarea {
+  min-height: 120px;
+}
 
 /*# sourceMappingURL=styles.css.map */
