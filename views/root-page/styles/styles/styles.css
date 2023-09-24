@@ -3,12 +3,29 @@
   color: var(--red);
   border: 2px solid var(--red);
   transition: ease-in-out 0.35s;
+  transition: ease-in-out 0.35s;
+}
+.--red-button:hover {
+  background-color: var(--red);
+  color: white;
+}
+
+.--yellow-button {
+  background-color: transparent;
+  color: var(--yellow);
+  border: 2px solid var(--yellow);
+  transition: ease-in-out 0.35s;
+  transition: ease-in-out 0.35s;
+}
+.--yellow-button:hover {
+  background-color: var(--yellow);
+  color: white;
 }
 
 .default-button {
   width: 100%;
   border-radius: 16px;
-  padding: 8px;
+  padding: 16px 24px;
   font-size: 20px;
   font-weight: light;
   text-align: center;

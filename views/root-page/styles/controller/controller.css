@@ -14,6 +14,14 @@ span.global__font-size-controller {
   font-size: 18.4px;
 }
 
+@media (min-width: 1300px) {
+  h2.global__font-size-controller {
+    font-size: 35.2px;
+  }
+  h3.global__font-size-controller {
+    font-size: 24px;
+  }
+}
 /**/
 .global__hrz-padding {
   padding-right: 28px;

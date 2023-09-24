@@ -25,6 +25,12 @@
 
   let currentContainer = 1;
 
+  window.addEventListener('resize', () => {
+    section1.scrollLeft =
+      (section1.scrollWidth / section1NumberOfContainers) *
+      (currentContainer - 1);
+  });
+
   function moveRight() {
     const currentPosition = section1.scrollLeft;
 

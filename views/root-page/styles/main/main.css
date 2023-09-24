@@ -77,42 +77,99 @@ div.section-2 > div p {
   }
 }
 /**/
-div.section-3 {
+div.default-section {
   padding-top: 144px;
-  padding-bottom: 144px;
 }
-div.section-3 h2 {
+div.default-section > h2 {
   text-align: center;
+  margin-bottom: 56px;
 }
-div.section-3 > div {
-  padding: 40px 0px;
+
+@media (min-width: 1300px) {
+  div.default-section > h2 {
+    margin-bottom: 64px;
+  }
 }
-div.section-3 > div div {
-  padding: 28px 0px;
+/**/
+div.section-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div.section-3 > div:first-of-type div {
   max-width: 440px;
+  margin-bottom: 48px;
 }
-div.section-3 > div div h3 {
+div.section-3 > div:first-of-type div h3 {
   color: var(--red);
   margin-bottom: 14.4px;
 }
+div.section-3 > div:last-of-type {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 24px;
+}
 
 @media (min-width: 900px) {
-  div.section-3 {
-    padding-top: 160px;
-    padding-bottom: 160px;
-  }
-  div.section-3 > div {
+  div.section-3 > div:first-of-type {
     display: grid;
     gap: 56px;
     grid-template-columns: auto auto;
   }
-  div.section-3 > div div {
-    padding: 0px;
+  div.section-3 > div:first-of-type div {
+    margin-bottom: 0px;
+  }
+  div.section-3 > div:last-of-type {
+    margin-top: 80px;
   }
 }
 @media (min-width: 1450px) {
-  div.section-3 > div {
-    padding: 80px 64px;
+  div.section-3 > div:first-of-type {
+    padding: 0px 64px;
+  }
+}
+/**/
+div.section-4 > div {
+  background-color: var(--red);
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+div.section-4 > div > div:first-of-type {
+  display: flex;
+  justify-content: center;
+}
+div.section-4 > div > div:first-of-type h2 {
+  max-width: 800px;
+  text-align: center;
+  color: white;
+}
+div.section-4 > div > div:last-of-type {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 64px;
+  margin-top: 64px;
+}
+div.section-4 > div > div:last-of-type div {
+  overflow: hidden;
+  text-align: center;
+}
+div.section-4 > div > div:last-of-type div h2 {
+  transform: scale(120%, 120%);
+  margin-bottom: 12px;
+  color: white;
+}
+div.section-4 > div > div:last-of-type div p {
+  color: var(--yellow);
+  font-size: 19.2px;
+}
+
+@media (min-width: 1300px) {
+  div.section-4 > div > div:last-of-type {
+    margin-top: 80px;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    gap: 32px;
   }
 }
 
