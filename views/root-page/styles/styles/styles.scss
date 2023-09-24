@@ -1,3 +1,41 @@
+a.default-logo {
+	display: block;
+
+	img {
+		height: 24px;
+	}
+}
+
+@media (min-width: 375px) {
+	a.default-logo {
+		img {
+			height: 28px;
+		}
+	}
+}
+
+@media (min-width: 375px) {
+	a.default-logo {
+		img {
+			height: 32px;
+		}
+	}
+}
+
+/**/
+
+.section-separator {
+	margin-top: 144px;
+}
+
+@media (min-width: 1300px) {
+	.section-separator {
+		margin-top: 180px;
+	}
+}
+
+/**/
+
 $colors: (
 	red: var(--red),
 	yellow: var(--yellow),
