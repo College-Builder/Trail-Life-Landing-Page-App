@@ -51,7 +51,7 @@ export class Module {
 	}
 
 	private static verifyPhone(phone: string) {
-		if (!phone || phone.replace(/\D/g, '').length !== 11) {
+		if (!phone || phone.replace(/\D/g, '').length !== 13) {
 			throw { message: 'Por favor, forneça um número de telefone válido' };
 		}
 	}

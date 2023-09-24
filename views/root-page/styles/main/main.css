@@ -87,7 +87,7 @@ div.default-section > h2 {
 
 @media (min-width: 1300px) {
   div.default-section > h2 {
-    margin-bottom: 64px;
+    margin-bottom: 72px;
   }
 }
 /**/
@@ -95,6 +95,11 @@ div.section-3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+div.section-3 > div:first-of-type {
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 div.section-3 > div:first-of-type div {
   max-width: 440px;
@@ -109,7 +114,6 @@ div.section-3 > div:last-of-type {
   align-items: center;
   width: 100%;
   max-width: 400px;
-  margin-top: 24px;
 }
 
 @media (min-width: 900px) {
@@ -120,9 +124,6 @@ div.section-3 > div:last-of-type {
   }
   div.section-3 > div:first-of-type div {
     margin-bottom: 0px;
-  }
-  div.section-3 > div:last-of-type {
-    margin-top: 80px;
   }
 }
 @media (min-width: 1450px) {
@@ -170,6 +171,41 @@ div.section-4 > div > div:last-of-type div p {
     margin-top: 80px;
     grid-template-columns: 33.33% 33.33% 33.33%;
     gap: 32px;
+  }
+}
+/**/
+div.section-7 > div > form > div:first-of-type {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+div.section-7 > div > form > div:first-of-type > div:first-of-type {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+div.section-7 > div > form > div:first-of-type div.section-7__input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+div.section-7 > div > form > div:first-of-type div.section-7__input-container label {
+  padding-left: 8px;
+  font-size: 17.6;
+}
+div.section-7 > div > form > div:last-of-type {
+  display: flex;
+  justify-content: center;
+}
+div.section-7 > div > form > div:last-of-type div {
+  width: 100%;
+  max-width: 400px;
+}
+
+@media (min-width: 900px) {
+  div.section-7 > div > form > div:first-of-type > div:first-of-type {
+    flex-direction: row;
   }
 }
 

@@ -67,3 +67,63 @@
     }
   }
 })();
+
+(() => {
+  const phoneInput = window.document.querySelector('input[phone-input]');
+
+  phoneInputProperties(phoneInput);
+
+  function phoneInputProperties(input) {
+    phoneInput.addEventListener('keydown', (event) => {
+      const input = event.target;
+      let value = String(input.value.replace(/\D/g, ''));
+
+      if (event.key === 'Backspace') {
+        if (value.length === 4) {
+          input.value = `+${value.slice(0, 2)} (${value.slice(2, 3)})`;
+        }
+
+        if (value.length === 3) {
+          input.value = value.slice(0, 3);
+        }
+      }
+    });
+
+    input.addEventListener('input', () => {
+      let value = String(input.value.replace(/\D/g, ''));
+
+      if (value.length === 0) {
+        input.value = '';
+      } else if (value.length <= 2) {
+        input.value = `+${value}`;
+      } else if (value.length === 3) {
+        input.value = `+${value.slice(0, 2)} (${value.charAt(2)})`;
+      } else if (value.length <= 4) {
+        input.value = `+${value.slice(0, 2)} (${value.slice(2, 4)})`;
+      } else if (value.length <= 9) {
+        input.value = `+${value.slice(0, 2)} (${value.slice(
+          2,
+          4,
+        )}) ${value.slice(4, 9)}`;
+      } else {
+        input.value = `+${value.slice(0, 2)} (${value.slice(
+          2,
+          4,
+        )}) ${value.slice(4, 9)}-${value.slice(9, 13)}`;
+      }
+    });
+  }
+})();
+
+(() => {
+  window.document
+    .querySelector('form[email-form]')
+    .addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = e.target.elements.name.value;
+      const phone = e.target.elements.phone.value;
+      const email = e.target.elements.email.value;
+      const message = e.target.elements.message.value;
+    });
+})();
