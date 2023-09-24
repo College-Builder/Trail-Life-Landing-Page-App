@@ -6,10 +6,11 @@ header {
   top: 0px;
   left: 0px;
 
-  & > div:first-of-type {
+  & > div {
     padding-top: 31.2px;
     padding-bottom: 24px;
     border-bottom: solid 4px var(--red);
+    box-shadow: 0px 1px 8px 4px rgba(0, 0, 0, 0.22);
 
     & > div:first-of-type {
       display: flex;
@@ -67,7 +68,7 @@ header {
       position: relative;
 
       & > div {
-        padding: 28px 4px 0px 4px;
+        padding: 40px 4px 0px 4px;
 
         ul {
           display: flex;
@@ -106,10 +107,10 @@ button[mobile-header-menu-button--close] {
 
   z-index: 3;
   width: 100vw;
-  height: 100vh;
-  filter: opacity(40%);
+  height: 100%;
+  filter: opacity(56%);
   background-color: black;
-  position: absolute;
+  position: fixed;
   transition: ease-in-out 0.35s;
 }
 

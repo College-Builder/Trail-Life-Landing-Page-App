@@ -1,3 +1,8 @@
+main {
+  height: 1000vw;
+}
+
+/**/
 div.section-1 {
   display: flex;
   width: 100%;
@@ -6,14 +11,14 @@ div.section-1 {
 }
 div.section-1 div.section-1__container {
   flex-shrink: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 div.section-1 div.section-1__controller {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   transform: translateY(-50%);
   position: absolute;
   left: 0px;
@@ -30,6 +35,81 @@ div.section-1 div.section-1__controller button svg {
   color: var(--red);
   width: 40px;
   height: 40px;
+}
+
+/**/
+div.section-2 {
+  display: flex;
+  gap: 56px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light-gray);
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+div.section-2 > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 280px;
+  min-width: 160px;
+  gap: 22px;
+}
+div.section-2 > div span {
+  font-size: 24px;
+  color: var(--yellow);
+}
+div.section-2 > div p {
+  text-align: center;
+}
+
+@media (min-width: 1000px) {
+  div.section-2 {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  div.section-2 > div span {
+    font-size: 28px;
+  }
+  div.section-2 > div p {
+    font-size: 18.4px;
+  }
+}
+/**/
+div.section-3 {
+  padding-top: 144px;
+  padding-bottom: 144px;
+}
+div.section-3 h2 {
+  text-align: center;
+}
+div.section-3 > div {
+  padding: 40px 0px;
+}
+div.section-3 > div div {
+  padding: 28px 0px;
+  max-width: 440px;
+}
+div.section-3 > div div h3 {
+  color: var(--red);
+  margin-bottom: 14.4px;
+}
+
+@media (min-width: 900px) {
+  div.section-3 > div {
+    display: grid;
+    gap: 56px;
+    grid-template-columns: auto auto;
+  }
+  div.section-3 > div div {
+    padding: 0px;
+  }
+}
+@media (min-width: 1450px) {
+  div.section-3 > div {
+    padding: 80px 64px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

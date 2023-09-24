@@ -1,5 +1,13 @@
 h1.global__font-size-controller {
-  font-size: 56px;
+  font-size: 65px;
+}
+
+h2.global__font-size-controller {
+  font-size: 30.4px;
+}
+
+h3.global__font-size-controller {
+  font-size: 20px;
 }
 
 span.global__font-size-controller {

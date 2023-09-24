@@ -6,41 +6,42 @@ header {
   top: 0px;
   left: 0px;
 }
-header > div:first-of-type {
+header > div {
   padding-top: 31.2px;
   padding-bottom: 24px;
   border-bottom: solid 4px var(--red);
+  box-shadow: 0px 1px 8px 4px rgba(0, 0, 0, 0.22);
 }
-header > div:first-of-type > div:first-of-type {
+header > div > div:first-of-type {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header > div:first-of-type > div:first-of-type > a img {
+header > div > div:first-of-type > a img {
   height: 24px;
 }
-header > div:first-of-type > div:first-of-type > button {
+header > div > div:first-of-type > button {
   color: var(--red);
   font-size: 22.4px;
 }
-header > div:first-of-type > div:first-of-type > ul {
+header > div > div:first-of-type > ul {
   display: none;
   gap: 28px;
 }
-header > div:first-of-type > div:first-of-type > ul a {
+header > div > div:first-of-type > ul a {
   font-weight: 500;
   color: var(--dark-gray);
   transition: ease-in-out 0.35s;
   font-size: 16.8px;
   position: relative;
 }
-header > div:first-of-type > div:first-of-type > ul a:hover {
+header > div > div:first-of-type > ul a:hover {
   color: var(--red);
 }
-header > div:first-of-type > div:first-of-type > ul a:hover::after {
+header > div > div:first-of-type > ul a:hover::after {
   width: 100%;
 }
-header > div:first-of-type > div:first-of-type > ul a::after {
+header > div > div:first-of-type > ul a::after {
   content: "";
   width: 0%;
   height: 3.2px;
@@ -50,31 +51,31 @@ header > div:first-of-type > div:first-of-type > ul a::after {
   bottom: -4px;
   transition: ease-in-out 0.4s;
 }
-header > div:first-of-type > div:nth-of-type(2) {
+header > div > div:nth-of-type(2) {
   height: 0px;
   overflow: hidden;
   transition: ease-in-out 0.35s;
   position: relative;
 }
-header > div:first-of-type > div:nth-of-type(2) > div {
-  padding: 28px 4px 0px 4px;
+header > div > div:nth-of-type(2) > div {
+  padding: 40px 4px 0px 4px;
 }
-header > div:first-of-type > div:nth-of-type(2) > div ul {
+header > div > div:nth-of-type(2) > div ul {
   display: flex;
   flex-direction: column;
   padding-left: 0px;
   gap: 24px;
 }
-header > div:first-of-type > div:nth-of-type(2) > div ul li a {
+header > div > div:nth-of-type(2) > div ul li a {
   font-weight: 500;
   color: var(--dark-gray);
   transition: ease-in-out 0.35s;
   font-size: 16.8px;
 }
-header > div:first-of-type > div:nth-of-type(2) > div ul li a:hover {
+header > div > div:nth-of-type(2) > div ul li a:hover {
   color: var(--red);
 }
-header > div:first-of-type > div:nth-of-type(2) > div ul li a i {
+header > div > div:nth-of-type(2) > div ul li a i {
   width: 28px;
   text-align: center;
 }
@@ -82,10 +83,10 @@ header > div:first-of-type > div:nth-of-type(2) > div ul li a i {
 button[mobile-header-menu-button--close] {
   z-index: 3;
   width: 100vw;
-  height: 100vh;
-  filter: opacity(40%);
+  height: 100%;
+  filter: opacity(56%);
   background-color: black;
-  position: absolute;
+  position: fixed;
   transition: ease-in-out 0.35s;
 }
 button[mobile-header-menu-button--close].--off {
