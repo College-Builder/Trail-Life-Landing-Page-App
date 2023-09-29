@@ -6,10 +6,12 @@ dotenv.config();
 
 const app = express();
 
+app.set('view engine', 'ejs');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/trail-life', router);
+app.use(process.env.AWS_API_GATEWAY_ENDPOINT!, router);
 
 const port = 2003;
 
