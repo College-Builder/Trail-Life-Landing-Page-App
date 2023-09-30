@@ -1,4 +1,64 @@
 (() => {
+  const items = [
+    [
+      {
+        img: 'https://www.motortrend.com/uploads/2023/04/1-2022-ram-1500-trx-ignition-edition.jpg?fit=around%7C875:492',
+        h3: 'Hello World',
+        p: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      },
+      {
+        img: 'https://www.motortrend.com/uploads/2023/04/1-2022-ram-1500-trx-ignition-edition.jpg?fit=around%7C875:492',
+        h3: 'Hello World',
+        p: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      },
+    ],
+    [
+      {
+        img: 'https://www.motortrend.com/uploads/2023/04/1-2022-ram-1500-trx-ignition-edition.jpg?fit=around%7C875:492',
+        h3: 'Hello World',
+        p: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      },
+      {
+        img: 'https://www.motortrend.com/uploads/2023/04/1-2022-ram-1500-trx-ignition-edition.jpg?fit=around%7C875:492',
+        h3: 'Hello World',
+        p: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      },
+    ],
+  ];
+
+  buildItems(items);
+  function buildItems(items) {
+    const itemTemplate = window.document.querySelector(
+      'template[seciton-4__slider__slider-container__item__template]',
+    );
+
+    items.forEach((item) => {
+      const itemTemplateUsable =
+        itemTemplate.content.cloneNode(true).children[0];
+
+      const cardTemplate = itemTemplateUsable.querySelector(
+        'template[seciton-4__slider__slider-container__item__card__template]',
+      );
+
+      item.forEach((card) => {
+        const cardTemplateUsable =
+          cardTemplate.content.cloneNode(true).children[0];
+
+        const img = cardTemplateUsable.querySelector('img');
+        img.setAttribute('src', card.img);
+        img.setAttribute('h3', card.h3);
+        cardTemplateUsable.querySelector('h3').innerText = card.h3;
+        cardTemplateUsable.querySelector('p').innerText = card.p;
+
+        cardTemplate.parentNode.append(cardTemplateUsable);
+      });
+
+      itemTemplate.parentNode.append(itemTemplateUsable);
+    });
+  }
+})();
+
+(() => {
   const slider = window.document.querySelector(
     'div[seciton-4__slider__slider-container]',
   );

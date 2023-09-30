@@ -117,6 +117,7 @@ div.section-4__slider > div:nth-of-type(2) {
 div.section-4__slider > div:nth-of-type(2) > div {
   flex-shrink: 0;
   display: flex;
+  gap: 16px;
   width: 100%;
 }
 div.section-4__slider > div:nth-of-type(2) > div > div {
