@@ -11,23 +11,17 @@ rootApi.post(
 		const { name, phone, email, message } = req.body;
 
 		try {
-			await GlobalModule.sendTemplateEmail(
-				process.env.AWS_SES_SOURCE_EMAIL!,
-				[email],
-				'pj3--trail-life--customer-email',
-				{ name: String(name + phone + email + message) },
-			);
-
-			await GlobalModule.sendTemplateEmail(
-				process.env.AWS_SES_SOURCE_EMAIL!,
-				process.env.AWS_SES_UAA_EMAIL!.split(',').map((item) => item.trim()),
-				'pj3--trail-life--uaa-email',
-				{ name: String(name + phone + email + message) },
+			await GlobalModule.Mailer.sendPj3TrailLifeCustomerEmail(name, email);
+			await GlobalModule.Mailer.sendPj3TrailLifeUaaEmail(
+				name,
+				phone,
+				email,
+				message,
 			);
 
 			res.sendStatus(200);
 		} catch (err: any) {
-			GlobalModule.handleMiddlewareError(res, err);
+			GlobalModule.Middleware.handleMiddlewareError(res, err);
 		}
 	},
 );

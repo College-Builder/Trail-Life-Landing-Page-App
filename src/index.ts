@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(process.env.AWS_API_GATEWAY_ENDPOINT!, router);
+app.use(process.env.PROJECT_ENDPOINT!, router);
 
 const port = 2003;
 
