@@ -23,45 +23,79 @@ span.global__font-size-controller {
   }
 }
 /**/
-.global__hrz-padding {
-  padding-right: 28px;
-  padding-left: 28px;
+.global__small-hrz-padding {
+  padding-left: calc(28px / 2);
+  padding-right: calc(28px / 2);
 }
-
 @media (min-width: 350px) {
-  .global__hrz-padding {
-    padding-right: 36px;
-    padding-left: 36px;
+  .global__small-hrz-padding {
+    padding-left: calc(36px / 3.2);
+    padding-right: calc(36px / 3.2);
   }
 }
 @media (min-width: 600px) {
-  .global__hrz-padding {
-    padding-right: 72px;
-    padding-left: 72px;
+  .global__small-hrz-padding {
+    padding-left: calc(72px / 2);
+    padding-right: calc(72px / 2);
   }
 }
 @media (min-width: 1000px) {
-  .global__hrz-padding {
-    padding-right: 120px;
-    padding-left: 120px;
+  .global__small-hrz-padding {
+    padding-left: calc(120px / 2);
+    padding-right: calc(120px / 2);
   }
 }
 @media (min-width: 1300px) {
-  .global__hrz-padding {
-    padding-right: 200px;
-    padding-left: 200px;
+  .global__small-hrz-padding {
+    padding-left: calc(200px / 2);
+    padding-right: calc(200px / 2);
   }
 }
 @media (min-width: 1600px) {
-  .global__hrz-padding {
-    padding-right: 256px;
+  .global__small-hrz-padding {
+    padding-left: calc(256px / 2);
+    padding-right: calc(256px / 2);
+  }
+}
+
+.global__default-hrz-padding {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+@media (min-width: 350px) {
+  .global__default-hrz-padding {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
+@media (min-width: 600px) {
+  .global__default-hrz-padding {
+    padding-left: 72px;
+    padding-right: 72px;
+  }
+}
+@media (min-width: 1000px) {
+  .global__default-hrz-padding {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+}
+@media (min-width: 1300px) {
+  .global__default-hrz-padding {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+}
+@media (min-width: 1600px) {
+  .global__default-hrz-padding {
     padding-left: 256px;
+    padding-right: 256px;
   }
 }
 @media (min-width: 1920px) {
-  .global__hrz-padding {
-    padding-right: 392px;
+  .global__default-hrz-padding {
     padding-left: 392px;
+    padding-right: 392px;
   }
 }
 

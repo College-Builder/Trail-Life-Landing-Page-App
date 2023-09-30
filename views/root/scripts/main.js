@@ -1,4 +1,64 @@
 (() => {
+  const slider = window.document.querySelector(
+    'div[seciton-4__slider__slider-container]',
+  );
+  const items = window.document.querySelectorAll(
+    'div[seciton-4__slider__slider-container__item]',
+  );
+  let itemsIndex = [];
+
+  items.forEach((item, index) => {
+    const itemWidth = item.offsetWidth; // Get the width of the item
+    const scrollPosition =
+      item.offsetLeft - (window.innerWidth - itemWidth) / 2; // Calculate the scroll position
+
+    if (index === 0) {
+      itemsIndex.push(scrollPosition);
+    } else {
+      itemsIndex.unshift(scrollPosition);
+    }
+  });
+
+  itemsIndex.reverse();
+
+  window.document
+    .querySelectorAll('button[seciton-4__slider__button--move]')
+    .forEach((button, index) => {
+      button.addEventListener('click', () =>
+        index === 0 ? moveLeft() : moveRight(),
+      );
+    });
+
+  let currentIndex = 0;
+
+  function moveRight() {
+    if (currentIndex === items.length - 1) {
+      return;
+    }
+
+    currentIndex++;
+
+    slider.scrollTo({
+      left: itemsIndex[currentIndex],
+      behavior: 'smooth',
+    });
+  }
+
+  function moveLeft() {
+    if (currentIndex === 0) {
+      return;
+    }
+
+    currentIndex--;
+
+    slider.scrollTo({
+      left: itemsIndex[currentIndex],
+      behavior: 'smooth',
+    });
+  }
+})();
+
+(() => {
   var controller = [];
 
   window.document
@@ -7,6 +67,7 @@
       const textContainer = div.querySelector(
         'div[section-6-accordion__text-container]',
       );
+
       const computedHeight = getComputedStyle(textContainer).height;
 
       controller.push({
@@ -28,20 +89,39 @@
 
         controller[index].state ? closeAccordion(index) : openAccordion(index);
       });
+    });
 
-      function openAccordion(index) {
+  window.addEventListener('resize', () => {
+    controller.forEach((_, index) => {
+      const closed = controller[index].textContainer.style.height === '0px';
+
+      controller[index].textContainer.style.height = 'auto';
+
+      controller[index].computedHeight = getComputedStyle(
+        controller[index].textContainer,
+      ).height;
+
+      if (closed) {
+        controller[index].textContainer.style.height = '0px';
+      } else {
         controller[index].textContainer.style.height =
           controller[index].computedHeight;
-        controller[index].textContainer.parentNode.classList.add('--open');
-        controller[index].state = true;
-      }
-
-      function closeAccordion(index) {
-        controller[index].textContainer.style.height = '0px';
-        controller[index].textContainer.parentNode.classList.remove('--open');
-        controller[index].state = false;
       }
     });
+  });
+
+  function openAccordion(index) {
+    controller[index].textContainer.style.height =
+      controller[index].computedHeight;
+    controller[index].textContainer.parentNode.classList.add('--open');
+    controller[index].state = true;
+  }
+
+  function closeAccordion(index) {
+    controller[index].textContainer.style.height = '0px';
+    controller[index].textContainer.parentNode.classList.remove('--open');
+    controller[index].state = false;
+  }
 })();
 
 (() => {
@@ -103,3 +183,40 @@
       const message = e.target.elements.message.value;
     });
 })();
+
+window.document
+  .querySelectorAll('div[slider-container]')
+  .forEach((sliderContainer) => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    sliderContainer.addEventListener('touchmove', () => {
+      isDown = true;
+    });
+    sliderContainer.addEventListener('touchend', () => {
+      isDown = false;
+    });
+    sliderContainer.addEventListener('mousedown', (e) => {
+      isDown = true;
+      sliderContainer.classList.add('active');
+      startX = e.pageX - sliderContainer.offsetLeft;
+      scrollLeft = sliderContainer.scrollLeft;
+    });
+    sliderContainer.addEventListener('mouseleave', () => {
+      isDown = false;
+      sliderContainer.classList.remove('active');
+    });
+    sliderContainer.addEventListener('mouseup', () => {
+      isDown = false;
+      sliderContainer.classList.remove('active');
+    });
+    sliderContainer.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - sliderContainer.offsetLeft;
+      const walk = x - startX;
+      sliderContainer.scrollLeft = scrollLeft - walk;
+      position = sliderContainer.scrollLeft;
+    });
+  });
