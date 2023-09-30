@@ -1,39 +1,6 @@
 import express from 'express';
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 
-export class Mailer {
-	static async sendEmail(
-		source: string,
-		to: Array<string>,
-		subject: string,
-		content: string,
-	) {
-		const sesClient = new SESClient({ region: process.env.AWS_SES_REGION });
-
-		const params = {
-			Source: source,
-			Destination: {
-				ToAddresses: to,
-			},
-			Message: {
-				Subject: {
-					Data: subject,
-				},
-				Body: {
-					Html: {
-						Data: content,
-					},
-				},
-			},
-		};
-
-		const sendEmailCommand = new SendEmailCommand(params);
-
-		return await sesClient.send(sendEmailCommand);
-	}
-}
-
-export class Module {
+export default class Module {
 	private static verifyName(name: string) {
 		if (!name || name.length < 4) {
 			throw { message: 'Por favor, forneça um nome válido' };

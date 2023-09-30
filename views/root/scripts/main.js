@@ -1,71 +1,47 @@
 (() => {
-  const section1 = window.document.querySelector('div[section-1]');
+  var controller = [];
 
-  const section1NumberOfContainers = section1.querySelectorAll(
-    'div[section-1-container]',
-  ).length;
+  window.document
+    .querySelectorAll('div[section-6-accordion]')
+    .forEach((div, index) => {
+      const textContainer = div.querySelector(
+        'div[section-6-accordion__text-container]',
+      );
+      const computedHeight = getComputedStyle(textContainer).height;
 
-  section1.querySelectorAll('button').forEach((button, index) => {
-    let clickable = true;
+      controller.push({
+        state: false,
+        textContainer,
+        computedHeight,
+      });
 
-    button.addEventListener('click', () => {
-      if (!clickable) {
-        return;
+      textContainer.style.height = '0px';
+
+      div.querySelector('button').addEventListener('click', () => {
+        controller.forEach((_, _index) => {
+          if (index === _index) {
+            return;
+          }
+
+          closeAccordion(_index);
+        });
+
+        controller[index].state ? closeAccordion(index) : openAccordion(index);
+      });
+
+      function openAccordion(index) {
+        controller[index].textContainer.style.height =
+          controller[index].computedHeight;
+        controller[index].textContainer.parentNode.classList.add('--open');
+        controller[index].state = true;
       }
 
-      clickable = false;
-
-      setTimeout(() => {
-        clickable = true;
-      }, 1000);
-
-      index === 0 ? moveLeft() : moveRight();
+      function closeAccordion(index) {
+        controller[index].textContainer.style.height = '0px';
+        controller[index].textContainer.parentNode.classList.remove('--open');
+        controller[index].state = false;
+      }
     });
-  });
-
-  let currentContainer = 1;
-
-  window.addEventListener('resize', () => {
-    section1.scrollLeft =
-      (section1.scrollWidth / section1NumberOfContainers) *
-      (currentContainer - 1);
-  });
-
-  function moveRight() {
-    const currentPosition = section1.scrollLeft;
-
-    section1.scrollTo({
-      top: 0,
-      left: currentPosition + section1.scrollWidth / section1NumberOfContainers,
-      behavior: 'smooth',
-    });
-
-    section1.querySelectorAll('button')[0].classList.remove('--off');
-
-    currentContainer++;
-
-    if (currentContainer === section1NumberOfContainers) {
-      section1.querySelectorAll('button')[1].classList.add('--off');
-    }
-  }
-
-  function moveLeft() {
-    const currentPosition = section1.scrollLeft;
-
-    section1.scrollTo({
-      top: 0,
-      left: currentPosition - section1.scrollWidth / section1NumberOfContainers,
-      behavior: 'smooth',
-    });
-
-    section1.querySelectorAll('button')[1].classList.remove('--off');
-
-    currentContainer--;
-
-    if (currentContainer === 1) {
-      section1.querySelectorAll('button')[0].classList.add('--off');
-    }
-  }
 })();
 
 (() => {
@@ -117,7 +93,7 @@
 
 (() => {
   window.document
-    .querySelector('form[email-form]')
+    .querySelector('form[section-7-email-form]')
     .addEventListener('submit', (e) => {
       e.preventDefault();
 
