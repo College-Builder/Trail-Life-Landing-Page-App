@@ -368,6 +368,10 @@ div.section-7 {
 		}
 
 		& > div:first-of-type {
+			height: 0px;
+			filter: opacity(0%);
+			pointer-events: none;
+
 			&.--status-500 {
 				& > div {
 					*.status-200 {
@@ -398,7 +402,7 @@ div.section-7 {
 
 					span.status-500 {
 						display: none;
-						color: var(--red);
+						color: red;
 					}
 
 					*.status-500 {
@@ -422,24 +426,12 @@ div.section-7 {
 				& > div:first-of-type {
 					display: flex;
 					flex-direction: column;
-					gap: 24px;
+					gap: 12px;
 
 					& > div:first-of-type {
 						display: flex;
 						flex-direction: column;
-						gap: 24px;
-					}
-
-					div.section-7__input-container {
-						width: 100%;
-						display: flex;
-						flex-direction: column;
-						gap: 8px;
-
-						label {
-							padding-left: 8px;
-							font-size: 17.6;
-						}
+						gap: 16px;
 					}
 				}
 

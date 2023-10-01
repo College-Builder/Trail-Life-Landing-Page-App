@@ -369,9 +369,6 @@
     'div[email-form-status-container__content]',
   );
 
-  statusContainer.style.height = '0px';
-  statusContainer.style.filter = 'opacity(0%)';
-
   const formContainer = window.document.querySelector(
     'div[email-form-container]',
   );
@@ -385,11 +382,17 @@
       const phone = e.target.elements.phone.value;
       const email = e.target.elements.email.value;
       const message = e.target.elements.message.value;
-
-      handleResponse();
     });
 
-  function handleResponse(status500) {
+  function handleErrorMessageResponse(label, message) {
+    const input = formContainer.querySelector(`input[name='${label}']`);
+    const inputContainer = input.parentNode;
+
+    formContainer.querySelector('i[error-message]').innerText = message;
+    inputContainer.classList.add('--show-error');
+  }
+
+  function handleFinalResponse(status500) {
     if (status500) {
       statusContainer.classList.add('--status-500');
     }
@@ -404,6 +407,7 @@
         statusContainer.style.height = window.getComputedStyle(
           statusContainerContent,
         ).height;
+        statusContainer.style.pointerEvents = 'all';
 
         setTimeout(() => {
           statusContainer.style.filter = 'opacity(100%)';

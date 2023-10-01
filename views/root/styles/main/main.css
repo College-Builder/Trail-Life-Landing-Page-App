@@ -275,6 +275,11 @@ div.section-6 > div > div > div div span {
 div.section-7 > div > div {
   transition: ease-in-out 0.6s;
 }
+div.section-7 > div > div:first-of-type {
+  height: 0px;
+  filter: opacity(0%);
+  pointer-events: none;
+}
 div.section-7 > div > div:first-of-type.--status-500 > div *.status-200 {
   display: none;
 }
@@ -299,7 +304,7 @@ div.section-7 > div > div:first-of-type > div div {
 }
 div.section-7 > div > div:first-of-type > div div span.status-500 {
   display: none;
-  color: var(--red);
+  color: red;
 }
 div.section-7 > div > div:first-of-type > div div *.status-500 {
   display: none;
@@ -314,22 +319,12 @@ div.section-7 > div > div:first-of-type > div div p {
 div.section-7 > div > div:last-of-type form > div:first-of-type {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
 }
 div.section-7 > div > div:last-of-type form > div:first-of-type > div:first-of-type {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-div.section-7 > div > div:last-of-type form > div:first-of-type div.section-7__input-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-div.section-7 > div > div:last-of-type form > div:first-of-type div.section-7__input-container label {
-  padding-left: 8px;
-  font-size: 17.6;
+  gap: 16px;
 }
 div.section-7 > div > div:last-of-type form > div:last-of-type {
   display: flex;
