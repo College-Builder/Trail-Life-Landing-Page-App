@@ -194,7 +194,7 @@
         <h2 class="global__font-size-controller">Serviços</h2>
         <div seciton-4__slider class="section-4__slider">
           <div class="global__default-hrz-padding">
-            <button seciton-4__slider__button--move>
+            <button class="--off" seciton-4__slider__button--move>
               <i class="fa-solid fa-circle-chevron-left"></i>
             </button>
           </div>
@@ -384,65 +384,109 @@
       >
         <h2 class="global__font-size-controller">Entre em Contato</h2>
         <div>
-          <form section-7-email-form>
-            <div>
+          <div email-form-status-container>
+            <div email-form-status-container__content>
               <div>
-                <div class="section-7__input-container">
-                  <label for="email-form-name">Nome:</label>
-                  <div class="default-input">
-                    <input
-                      placeholder="Nome"
-                      type="text"
-                      name="name"
-                      id="email-form-name"
-                    />
-                  </div>
-                </div>
-                <div class="section-7__input-container">
-                  <label for="email-form-phone">Celular:</label>
-                  <div class="default-input">
-                    <input
-                      phone-input
-                      placeholder="+55 (99) 9999-99999"
-                      type="text"
-                      name="phone"
-                      id="email-form-phone"
-                    />
-                  </div>
-                </div>
+                <span class="status-200">
+                  <i class="fa-regular fa-circle-check"></i>
+                </span>
+                <span class="status-500">
+                  <i class="fa-regular fa-circle-xmark"></i>
+                </span>
+                <h3 class="global__font-size-controller status-200">
+                  Email enviado com successo
+                </h3>
+                <h3 class="global__font-size-controller status-500">
+                  Email não pode ser enviado, tente novamente mais tarde
+                </h3>
+                <p class="status-200">
+                  Agradecemos por entrar em contato com a Trail Life. Recebemos
+                  o seu e-mail e em breve um de nossos representantes entrará em
+                  contato. Aguarde mais um pouco, estamos ansiosos para ajudar.
+                  Caso precise de ajuda adicional, sinta-se à vontade para
+                  entrar em contato pelo WhatsApp.
+                </p>
+                <p class="status-500">
+                  Lamentamos informar que houve um problema ao tentar enviar o
+                  seu e-mail devido a uma falha no nosso servidor. Pedimos
+                  desculpas sinceramente por qualquer inconveniente que isso
+                  possa ter causado. Nossos técnicos já foram notificados e
+                  estão trabalhando para resolver o problema o mais rápido
+                  possível. Pedimos que tente novamente em breve. Se precisar de
+                  assistência imediata, por favor, entre em contato conosco pelo
+                  WhatsApp.
+                </p>
               </div>
-              <div class="section-7__input-container">
-                <label for="email-form-email">Email:</label>
-                <div class="default-input">
-                  <input
-                    placeholder="xxx@x.com"
-                    type="text"
-                    name="email"
-                    id="email-form-email"
-                  />
-                </div>
-              </div>
-              <div class="section-7__input-container">
-                <label for="email-form-message">Mensagem:</label>
-                <div class="default-input">
-                  <textarea
-                    placeholder="Mensagem"
-                    name="message"
-                    id="email-form-message"
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-            <div>
+
               <div class="default-button-container">
-                <button
-                  class="default-button default-button-margin --red-button"
-                >
-                  Enviar
-                </button>
+                <a class="default-button default-button-margin --green-button">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  WhatsApp
+                </a>
               </div>
             </div>
-          </form>
+          </div>
+          <div email-form-container>
+            <form email-form-container__form>
+              <div>
+                <div>
+                  <div class="section-7__input-container">
+                    <label for="email-form-name">Nome:</label>
+                    <div class="default-input">
+                      <input
+                        placeholder="Nome"
+                        type="text"
+                        name="name"
+                        id="email-form-name"
+                      />
+                    </div>
+                  </div>
+                  <div class="section-7__input-container">
+                    <label for="email-form-phone">Celular:</label>
+                    <div class="default-input">
+                      <input
+                        phone-input
+                        placeholder="+55 (99) 9999-99999"
+                        type="text"
+                        name="phone"
+                        id="email-form-phone"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="section-7__input-container">
+                  <label for="email-form-email">Email:</label>
+                  <div class="default-input">
+                    <input
+                      placeholder="xxx@x.com"
+                      type="text"
+                      name="email"
+                      id="email-form-email"
+                    />
+                  </div>
+                </div>
+                <div class="section-7__input-container">
+                  <label for="email-form-message">Mensagem:</label>
+                  <div class="default-input">
+                    <textarea
+                      placeholder="Mensagem"
+                      name="message"
+                      id="email-form-message"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="default-button-container">
+                  <button
+                    class="default-button default-button-margin --red-button"
+                  >
+                    Enviar
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </main>

@@ -1,32 +1,103 @@
 (() => {
   const items = [
-    [
-      {
-        img: 'https://www.motortrend.com/uploads/2023/04/1-2022-ram-1500-trx-ignition-edition.jpg?fit=around%7C875:492',
-        h3: 'Hello World',
-        p: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-      },
-      {
-        img: 'https://www.motortrend.com/uploads/2023/04/1-2022-ram-1500-trx-ignition-edition.jpg?fit=around%7C875:492',
-        h3: 'Hello World',
-        p: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-      },
-    ],
-    [
-      {
-        img: 'https://www.motortrend.com/uploads/2023/04/1-2022-ram-1500-trx-ignition-edition.jpg?fit=around%7C875:492',
-        h3: 'Hello World',
-        p: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-      },
-      {
-        img: 'https://www.motortrend.com/uploads/2023/04/1-2022-ram-1500-trx-ignition-edition.jpg?fit=around%7C875:492',
-        h3: 'Hello World',
-        p: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-      },
-    ],
+    {
+      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/bulk-liquid-cargoes.png',
+      h3: 'Cargas de Granéis Líquidos',
+      p: 'Recomendado para empresas que precisam transportar cargas como óleo cru, produtos químicos líquidos não perigosos e outros líquidos que são transportados em grandes quantidades.',
+    },
+    {
+      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/special-cargoes.png',
+      h3: 'Cargas Especiais',
+      p: 'Recomendado para empresas que precisam transportar cargas pesadas e longas.',
+    },
+    {
+      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/dangerous-cargo.png',
+      h3: 'Cargas Perigosa',
+      p: 'Recomendado para empresas que precisam transportar mercadoria com uma taxa de risco como produtos químicos, inflamáveis, substâncias tóxicas e outros itens que apresentam riscos à segurança durante o transporte.',
+    },
+    {
+      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/general-cargo.png',
+      h3: 'Cargas em Geral',
+      p: 'Recomendado para empresas que desejam contratar para transporte de mercadorias de diferentes tipos e tamanhos.',
+    },
+
+    {
+      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/fractionated-cargo.png',
+      h3: 'Cargas Fracionada',
+      p: 'Recomendado para empresas que desejam contratar apenas um espaço no veículo de transporte.',
+    },
+    {
+      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/express-cargoperishable-cargo.png',
+      h3: 'Cargas Expressa',
+      p: 'Recomendado para empresas que precisam que o tempo de entrega da carga seja rápido. ',
+    },
+    {
+      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/perishable-cargo.png',
+      h3: 'Cargas Perecível',
+      p: 'Recomendado para empresas que necessita o transporte de alimentos, medicamentos e itens sensíveis à temperatura que requerem transporte refrigerado ou congelado para manter a qualidade.',
+    },
+    {
+      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/dedicated-cargo.png',
+      h3: 'Cargas Dedicada',
+      p: 'Recomendado para empresas que tem a necessidade de um fornecimento exclusivo da carga.',
+    },
+    {
+      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/pharmaceutical-cargo.png',
+      h3: 'Cargas Farmacêuticas',
+      p: 'Recomendado para empresas que precisam transportar produtos farmacêuticos e medicamentos e que exige condições controladas de temperatura e segurança.',
+    },
   ];
 
-  buildItems(items);
+  buildItems(parseItems(items));
+
+  window.addEventListener('resize', () => {
+    window.document
+      .querySelectorAll('div[seciton-4__slider__slider-container__item]')
+      .forEach((div) => {
+        div.remove();
+      });
+
+    buildItems(parseItems(items));
+  });
+
+  function parseItems(items) {
+    const windowSize = window.innerWidth;
+    let loops;
+    let itemPerLoop;
+
+    if (windowSize < 700) {
+      loops = items.length;
+      itemPerLoop = 1;
+    } else if (windowSize < 1300) {
+      loops = items.length / 2;
+      itemPerLoop = 2;
+    } else {
+      loops = items.length / 3;
+      itemPerLoop = 3;
+    }
+
+    const parsedItems = [];
+    let currentItem = 0;
+
+    for (let c = 0; c < loops; c++) {
+      parsedItems.push([]);
+
+      for (let i = 0; i < itemPerLoop; i++) {
+        if (!items[currentItem]) {
+          parsedItems.pop();
+
+          continue;
+        }
+
+        parsedItems[c].push(items[currentItem]);
+
+        currentItem++;
+      }
+    }
+
+    return parsedItems;
+  }
+
   function buildItems(items) {
     const itemTemplate = window.document.querySelector(
       'template[seciton-4__slider__slider-container__item__template]',
@@ -62,34 +133,93 @@
   const slider = window.document.querySelector(
     'div[seciton-4__slider__slider-container]',
   );
-  const items = window.document.querySelectorAll(
+  let items = window.document.querySelectorAll(
     'div[seciton-4__slider__slider-container__item]',
   );
+  const moveButtons = window.document.querySelectorAll(
+    'button[seciton-4__slider__button--move]',
+  );
+
   let itemsIndex = [];
+  let currentIndex = 0;
+  let goToTheBeggining = true;
+  let resizeTimer;
 
-  items.forEach((item, index) => {
-    const itemWidth = item.offsetWidth; // Get the width of the item
-    const scrollPosition =
-      item.offsetLeft - (window.innerWidth - itemWidth) / 2; // Calculate the scroll position
+  buildItemsIndex();
 
-    if (index === 0) {
-      itemsIndex.push(scrollPosition);
-    } else {
-      itemsIndex.unshift(scrollPosition);
+  window.addEventListener('resize', () => {
+    if (goToTheBeggining) {
+      goToTheBeggining = false;
+
+      slider.scrollTo({
+        left: 0,
+        behavior: 'smooth',
+      });
+
+      moveButtons[0].classList.add('--off');
+      moveButtons[1].classList.remove('--off');
     }
+
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      goToTheBeggining = true;
+    }, 200);
+
+    items = window.document.querySelectorAll(
+      'div[seciton-4__slider__slider-container__item]',
+    );
+
+    itemsIndex = [];
+    currentIndex = 0;
+
+    buildItemsIndex();
   });
 
-  itemsIndex.reverse();
+  let moveButtonActive = true;
 
-  window.document
-    .querySelectorAll('button[seciton-4__slider__button--move]')
-    .forEach((button, index) => {
-      button.addEventListener('click', () =>
-        index === 0 ? moveLeft() : moveRight(),
-      );
+  moveButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      if (moveButtonActive) {
+        moveButtonActive = false;
+
+        setTimeout(() => {
+          moveButtonActive = true;
+        }, 800);
+      } else {
+        return;
+      }
+
+      index === 0 ? moveLeft() : moveRight();
+
+      if (currentIndex === 0) {
+        moveButtons[0].classList.add('--off');
+      } else if (moveButtons[0].classList.contains('--off')) {
+        moveButtons[0].classList.remove('--off');
+      }
+
+      if (currentIndex === items.length - 1) {
+        moveButtons[1].classList.add('--off');
+      } else if (moveButtons[1].classList.contains('--off')) {
+        moveButtons[1].classList.remove('--off');
+      }
+    });
+  });
+
+  function buildItemsIndex() {
+    items.forEach((item, index) => {
+      const itemWidth = item.offsetWidth;
+      const scrollPosition =
+        item.offsetLeft - (window.innerWidth - itemWidth) / 2;
+
+      if (index === 0) {
+        itemsIndex.push(scrollPosition);
+      } else {
+        itemsIndex.unshift(scrollPosition);
+      }
     });
 
-  let currentIndex = 0;
+    itemsIndex.reverse();
+  }
 
   function moveRight() {
     if (currentIndex === items.length - 1) {
@@ -232,8 +362,22 @@
 })();
 
 (() => {
+  const statusContainer = window.document.querySelector(
+    'div[email-form-status-container]',
+  );
+  const statusContainerContent = window.document.querySelector(
+    'div[email-form-status-container__content]',
+  );
+
+  statusContainer.style.height = '0px';
+  statusContainer.style.filter = 'opacity(0%)';
+
+  const formContainer = window.document.querySelector(
+    'div[email-form-container]',
+  );
+
   window.document
-    .querySelector('form[section-7-email-form]')
+    .querySelector('form[email-form-container__form]')
     .addEventListener('submit', (e) => {
       e.preventDefault();
 
@@ -241,42 +385,30 @@
       const phone = e.target.elements.phone.value;
       const email = e.target.elements.email.value;
       const message = e.target.elements.message.value;
+
+      handleResponse();
     });
+
+  function handleResponse(status500) {
+    if (status500) {
+      statusContainer.classList.add('--status-500');
+    }
+
+    formContainer.style.height = window.getComputedStyle(formContainer).height;
+
+    setTimeout(() => {
+      formContainer.style.filter = 'opacity(0%)';
+
+      setTimeout(() => {
+        formContainer.style.height = '0px';
+        statusContainer.style.height = window.getComputedStyle(
+          statusContainerContent,
+        ).height;
+
+        setTimeout(() => {
+          statusContainer.style.filter = 'opacity(100%)';
+        }, 600);
+      }, 500);
+    }, 200);
+  }
 })();
-
-window.document
-  .querySelectorAll('div[slider-container]')
-  .forEach((sliderContainer) => {
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    sliderContainer.addEventListener('touchmove', () => {
-      isDown = true;
-    });
-    sliderContainer.addEventListener('touchend', () => {
-      isDown = false;
-    });
-    sliderContainer.addEventListener('mousedown', (e) => {
-      isDown = true;
-      sliderContainer.classList.add('active');
-      startX = e.pageX - sliderContainer.offsetLeft;
-      scrollLeft = sliderContainer.scrollLeft;
-    });
-    sliderContainer.addEventListener('mouseleave', () => {
-      isDown = false;
-      sliderContainer.classList.remove('active');
-    });
-    sliderContainer.addEventListener('mouseup', () => {
-      isDown = false;
-      sliderContainer.classList.remove('active');
-    });
-    sliderContainer.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - sliderContainer.offsetLeft;
-      const walk = x - startX;
-      sliderContainer.scrollLeft = scrollLeft - walk;
-      position = sliderContainer.scrollLeft;
-    });
-  });
