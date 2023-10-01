@@ -1,4 +1,5 @@
 :root {
+  --green: #069d06;
   --red: #b20c30;
   --yellow: #ff9900;
   --light-gray: #f2f2f2;
@@ -33,7 +34,46 @@ a.default-logo img {
     margin-top: 180px;
   }
 }
+div.default-section > h2 {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+@media (min-width: 1300px) {
+  div.default-section > h2 {
+    margin-bottom: 72px;
+  }
+}
 /**/
+div.default-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 56px;
+}
+div.default-button-container button,
+div.default-button-container a {
+  max-width: 400px;
+}
+
+@media (min-width: 1300px) {
+  div.default-button-container {
+    margin-top: 72px;
+  }
+}
+/**/
+.--green-button {
+  background-color: transparent;
+  color: var(--green);
+  border: 2px solid var(--green);
+  transition: ease-in-out 0.35s;
+  transition: ease-in-out 0.35s;
+}
+.--green-button:hover {
+  background-color: var(--green);
+  color: white;
+}
+
 .--red-button {
   background-color: transparent;
   color: var(--red);
@@ -64,13 +104,11 @@ a.default-logo img {
   padding: 16px 24px;
   font-size: 18.4px;
   font-weight: light;
-  margin-top: 32px;
   text-align: center;
 }
 
 @media (min-width: 900px) {
   .default-button-margin {
-    margin-top: 56px;
     font-size: 20px;
   }
 }
@@ -90,7 +128,9 @@ div.default-input textarea {
   padding: 16px;
 }
 div.default-input textarea {
+  width: 120px;
   min-height: 120px;
+  max-height: 220px;
 }
 
 /*# sourceMappingURL=styles.css.map */

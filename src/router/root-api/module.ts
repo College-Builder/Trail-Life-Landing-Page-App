@@ -3,7 +3,7 @@ import express from 'express';
 export default class Module {
 	private static verifyName(name: string) {
 		if (!name || name.length < 4) {
-			throw { message: 'Por favor, forneça um nome válido' };
+			throw { label: 'name', message: 'Por favor, forneça um nome válido' };
 		}
 
 		name = name.trim();
@@ -13,13 +13,16 @@ export default class Module {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 		if (!email || !emailRegex.test(email)) {
-			throw { message: 'Por favor, forneça um email válido' };
+			throw { label: 'email', message: 'Por favor, forneça um email válido' };
 		}
 	}
 
 	private static verifyPhone(phone: string) {
 		if (!phone || phone.replace(/\D/g, '').length !== 13) {
-			throw { message: 'Por favor, forneça um número de telefone válido' };
+			throw {
+				label: 'phone',
+				message: 'Por favor, forneça um número de telefone válido',
+			};
 		}
 	}
 

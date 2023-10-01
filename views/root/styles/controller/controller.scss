@@ -26,49 +26,75 @@ span.global__font-size-controller {
 
 /**/
 
-.global__hrz-padding {
-  padding-right: 28px;
-  padding-left: 28px;
-}
+$default-padding-small: 28px;
+$default-padding-medium: 36px;
+$default-padding-large: 72px;
+$default-padding-xlarge: 120px;
+$default-padding-xxlarge: 200px;
+$default-padding-xxxlarge: 256px;
+$default-padding-xxxxlarge: 392px;
 
-@media (min-width: 350px) {
-  .global__hrz-padding {
-    padding-right: 36px;
-    padding-left: 36px;
+.global__small-hrz-padding {
+  padding-left: calc(#{$default-padding-small} / 2);
+  padding-right: calc(#{$default-padding-small} / 2);
+
+  @media (min-width: 350px) {
+    padding-left: calc(#{$default-padding-medium} / 3.2);
+    padding-right: calc(#{$default-padding-medium} / 3.2);
+  }
+
+  @media (min-width: 600px) {
+    padding-left: calc(#{$default-padding-large} / 2);
+    padding-right: calc(#{$default-padding-large} / 2);
+  }
+
+  @media (min-width: 1000px) {
+    padding-left: calc(#{$default-padding-xlarge} / 2);
+    padding-right: calc(#{$default-padding-xlarge} / 2);
+  }
+
+  @media (min-width: 1300px) {
+    padding-left: calc(#{$default-padding-xxlarge} / 2);
+    padding-right: calc(#{$default-padding-xxlarge} / 2);
+  }
+
+  @media (min-width: 1600px) {
+    padding-left: calc(#{$default-padding-xxxlarge} / 2);
+    padding-right: calc(#{$default-padding-xxxlarge} / 2);
   }
 }
 
-@media (min-width: 600px) {
-  .global__hrz-padding {
-    padding-right: 72px;
-    padding-left: 72px;
-  }
-}
+.global__default-hrz-padding {
+  padding-left: $default-padding-small;
+  padding-right: $default-padding-small;
 
-@media (min-width: 1000px) {
-  .global__hrz-padding {
-    padding-right: 120px;
-    padding-left: 120px;
+  @media (min-width: 350px) {
+    padding-left: $default-padding-medium;
+    padding-right: $default-padding-medium;
   }
-}
 
-@media (min-width: 1300px) {
-  .global__hrz-padding {
-    padding-right: 200px;
-    padding-left: 200px;
+  @media (min-width: 600px) {
+    padding-left: $default-padding-large;
+    padding-right: $default-padding-large;
   }
-}
 
-@media (min-width: 1600px) {
-  .global__hrz-padding {
-    padding-right: 256px;
-    padding-left: 256px;
+  @media (min-width: 1000px) {
+    padding-left: $default-padding-xlarge;
+    padding-right: $default-padding-xlarge;
   }
-}
 
-@media (min-width: 1920px) {
-  .global__hrz-padding {
-    padding-right: 392px;
-    padding-left: 392px;
+  @media (min-width: 1300px) {
+    padding-left: $default-padding-xxlarge;
+    padding-right: $default-padding-xxlarge;
+  }
+
+  @media (min-width: 1600px) {
+    padding-left: $default-padding-xxxlarge;
+    padding-right: $default-padding-xxxlarge;
+  }
+
+  @media (min-width: 1920px) {
+    padding-left: $default-padding-xxxxlarge;
+    padding-right: $default-padding-xxxxlarge;
   }
 }

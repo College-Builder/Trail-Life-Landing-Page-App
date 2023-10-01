@@ -32,7 +32,7 @@
 
     <!--scripts-->
     <script defer src="./scripts/header.js"></script>
-    <script defer src="./scripts/main.js"></script>
+    <script type="module" defer src="./scripts/main.js"></script>
 
     <!--styles-->
     <link rel="stylesheet" href="./styles/index/index.css" />
@@ -53,7 +53,7 @@
   </head>
   <body>
     <header>
-      <div class="global__hrz-padding">
+      <div class="global__default-hrz-padding">
         <div>
           <a class="default-logo" href="/">
             <img src="./assets/images/logo/logo.png" alt="Trail Life Logo" />
@@ -110,7 +110,7 @@
     </header>
     <button mobile-header-menu-button--close class="--off"></button>
     <main>
-      <div class="global__hrz-padding section-2">
+      <div class="global__default-hrz-padding section-2">
         <div>
           <span>
             <i class="fa-solid fa-globe"></i>
@@ -131,7 +131,12 @@
         </div>
       </div>
       <div
-        class="global__hrz-padding section-separator default-section section-3"
+        class="
+          global__default-hrz-padding
+          section-separator
+          default-section
+          section-3
+        "
       >
         <h2 class="global__font-size-controller">Atendemos a sua demanda</h2>
         <div>
@@ -179,7 +184,7 @@
             </p>
           </div>
         </div>
-        <div>
+        <div class="default-button-container">
           <a class="default-button default-button-margin --red-button" href="#">
             Default
           </a>
@@ -187,9 +192,46 @@
       </div>
       <div class="default-section section-separator section-4">
         <h2 class="global__font-size-controller">Serviços</h2>
+        <div seciton-4__slider class="section-4__slider">
+          <div class="global__default-hrz-padding">
+            <button class="--off" seciton-4__slider__button--move>
+              <i class="fa-solid fa-circle-chevron-left"></i>
+            </button>
+          </div>
+          <div
+            seciton-4__slider__slider-container
+            class="global__default-hrz-padding"
+          >
+            <template seciton-4__slider__slider-container__item__template>
+              <div seciton-4__slider__slider-container__item>
+                <template
+                  seciton-4__slider__slider-container__item__card__template
+                >
+                  <div seciton-4__slider__slider-container__item__card>
+                    <img />
+                    <div>
+                      <h3></h3>
+                      <p></p>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </template>
+          </div>
+          <div class="global__default-hrz-padding">
+            <button seciton-4__slider__button--move>
+              <i class="fa-solid fa-circle-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="global__default-hrz-padding default-button-container">
+          <a class="default-button default-button-margin --red-button" href="#">
+            Default
+          </a>
+        </div>
       </div>
       <div class="default-section section-separator section-5">
-        <div class="global__hrz-padding">
+        <div class="global__default-hrz-padding">
           <div>
             <h2 class="global__font-size-controller">
               Comprometimento é o que move a nossa logística e provamos isso em
@@ -231,7 +273,12 @@
         </div>
       </div>
       <div
-        class="global__hrz-padding section-separator default-section section-6"
+        class="
+          global__default-hrz-padding
+          section-separator
+          default-section
+          section-6
+        "
       >
         <h2 class="global__font-size-controller">Funcionalidades</h2>
         <div>
@@ -328,74 +375,123 @@
         </div>
       </div>
       <div
-        class="global__hrz-padding section-separator default-section section-7"
+        class="
+          global__default-hrz-padding
+          section-separator
+          default-section
+          section-7
+        "
       >
         <h2 class="global__font-size-controller">Entre em Contato</h2>
         <div>
-          <form section-7-email-form>
-            <div>
+          <div email-form-status-container>
+            <div email-form-status-container__content>
               <div>
+                <span class="status-200">
+                  <i class="fa-regular fa-circle-check"></i>
+                </span>
+                <span class="status-500">
+                  <i class="fa-regular fa-circle-xmark"></i>
+                </span>
+                <h3 class="global__font-size-controller status-200">
+                  Email enviado com successo
+                </h3>
+                <h3 class="global__font-size-controller status-500">
+                  Email não pode ser enviado, tente novamente mais tarde
+                </h3>
+                <p class="status-200">
+                  Agradecemos por entrar em contato com a Trail Life. Recebemos
+                  o seu e-mail e em breve um de nossos representantes entrará em
+                  contato. Aguarde mais um pouco, estamos ansiosos para ajudar.
+                  Caso precise de ajuda adicional, sinta-se à vontade para
+                  entrar em contato pelo WhatsApp.
+                </p>
+                <p class="status-500">
+                  Lamentamos informar que houve um problema ao tentar enviar o
+                  seu e-mail devido a uma falha no nosso servidor. Pedimos
+                  desculpas sinceramente por qualquer inconveniente que isso
+                  possa ter causado. Nossos técnicos já foram notificados e
+                  estão trabalhando para resolver o problema o mais rápido
+                  possível. Pedimos que tente novamente em breve. Se precisar de
+                  assistência imediata, por favor, entre em contato conosco pelo
+                  WhatsApp.
+                </p>
+              </div>
+
+              <div class="default-button-container">
+                <a class="default-button default-button-margin --green-button">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+          <div email-form-container>
+            <form email-form-container__form>
+              <div>
+                <div>
+                  <div class="section-7__input-container">
+                    <label for="email-form-name">Nome:</label>
+                    <div class="default-input">
+                      <input
+                        placeholder="Nome"
+                        type="text"
+                        name="name"
+                        id="email-form-name"
+                      />
+                    </div>
+                  </div>
+                  <div class="section-7__input-container">
+                    <label for="email-form-phone">Celular:</label>
+                    <div class="default-input">
+                      <input
+                        phone-input
+                        placeholder="+55 (99) 9999-99999"
+                        type="text"
+                        name="phone"
+                        id="email-form-phone"
+                      />
+                    </div>
+                  </div>
+                </div>
                 <div class="section-7__input-container">
-                  <label for="email-form-name">Nome:</label>
+                  <label for="email-form-email">Email:</label>
                   <div class="default-input">
                     <input
-                      placeholder="Nome"
+                      placeholder="xxx@x.com"
                       type="text"
-                      name="name"
-                      id="email-form-name"
+                      name="email"
+                      id="email-form-email"
                     />
                   </div>
                 </div>
                 <div class="section-7__input-container">
-                  <label for="email-form-phone">Celular:</label>
+                  <label for="email-form-message">Mensagem:</label>
                   <div class="default-input">
-                    <input
-                      phone-input
-                      placeholder="+55 (99) 9999-99999"
-                      type="text"
-                      name="phone"
-                      id="email-form-phone"
-                    />
+                    <textarea
+                      placeholder="Mensagem"
+                      name="message"
+                      id="email-form-message"
+                    ></textarea>
                   </div>
                 </div>
               </div>
-              <div class="section-7__input-container">
-                <label for="email-form-email">Email:</label>
-                <div class="default-input">
-                  <input
-                    placeholder="xxx@x.com"
-                    type="text"
-                    name="email"
-                    id="email-form-email"
-                  />
-                </div>
-              </div>
-              <div class="section-7__input-container">
-                <label for="email-form-message">Mensagem:</label>
-                <div class="default-input">
-                  <textarea
-                    placeholder="Mensagem"
-                    name="message"
-                    id="email-form-message"
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-            <div>
               <div>
-                <button
-                  class="default-button default-button-margin --red-button"
-                >
-                  Enviar
-                </button>
+                <div class="default-button-container">
+                  <button
+                    class="default-button default-button-margin --red-button"
+                  >
+                    Enviar
+                  </button>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </main>
     <footer>
-      <div class="global__hrz-padding section-separator">
+      <div class="global__default-hrz-padding section-separator">
         <div>
           <div>
             <a class="default-logo" href="/">
