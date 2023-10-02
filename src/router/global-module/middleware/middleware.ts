@@ -1,6 +1,6 @@
 import { Response } from 'express';
+import GlobalModule from '../global-module';
 import FastLog from 'ks-fastlog';
-import Mailer from '../mailer/mailer';
 
 export default class Middleware {
 	static async handleMiddlewareError(res: Response, err: any) {
@@ -10,7 +10,7 @@ export default class Middleware {
 
 		FastLog.log(err, 'error');
 
-		Mailer.sendErrorLogReportEmail(err).catch((_err) => {
+		GlobalModule.Mailer.sendErrorLogReportEmail(err).catch((_err) => {
 			console.log(err, _err);
 		});
 	}
