@@ -1,5 +1,5 @@
 import express from 'express';
-import GlobalModule from '../global-module/global-module';
+import GlobalModule from '../../global-module/global-module';
 import Module from './module';
 
 const rootApi = express.Router();

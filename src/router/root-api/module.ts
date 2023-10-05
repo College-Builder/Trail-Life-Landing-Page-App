@@ -1,5 +1,5 @@
 import express from 'express';
-import GlobalModule from '..//global-module/global-module';
+import GlobalModule from '../../global-module/global-module';
 
 export default class Module {
 	private static verifyName(name: string) {

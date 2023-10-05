@@ -29,7 +29,7 @@ export default class Mailer {
 		await Mailer.sendTemplateEmail(
 			process.env.AWS_SES_SOURCE_EMAIL!,
 			[email],
-			'pj3--trail-life--customer-email',
+			process.env.AWS_SES_CLIENT_EMAIL_TEMPLATE!,
 			{ name: 'This is the customer email' },
 		);
 	}
@@ -43,7 +43,7 @@ export default class Mailer {
 		await Mailer.sendTemplateEmail(
 			process.env.AWS_SES_SOURCE_EMAIL!,
 			process.env.AWS_SES_UAA_EMAIL!.split(',').map((item) => item.trim()),
-			'pj3--trail-life--uaa-email',
+			process.env.AWS_SES_UAA_EMAIL_TEMPLATE!,
 			{ name: 'This is the uaa email' },
 		);
 	}
@@ -58,7 +58,7 @@ export default class Mailer {
 				'project-hostname': process.env.PROJECT_HOSTNAME,
 				'project-url': `https://${process.env.PROJECT_HOSTNAME}/${process.env.PROJECT_ENDPOINT}`,
 				'error-log': JSON.stringify(err, null, 2),
-				'company-logo': process.env.COMPANY_LOGO,
+				'company-logo': process.env.COMPANY_LOGO_URL,
 			},
 		);
 	}
