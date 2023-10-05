@@ -1,48 +1,48 @@
 (() => {
   const items = [
     {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/bulk-liquid-cargoes.png',
+      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/bulk-liquid-cargoes.png',
       h3: 'Cargas de Granéis Líquidos',
       p: 'Recomendado para empresas que precisam transportar cargas como óleo cru, produtos químicos líquidos não perigosos e outros líquidos que são transportados em grandes quantidades.',
     },
     {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/special-cargoes.png',
+      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/special-cargoes.png',
       h3: 'Cargas Especiais',
       p: 'Recomendado para empresas que precisam transportar cargas pesadas e longas.',
     },
     {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/dangerous-cargo.png',
+      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/dangerous-cargo.png',
       h3: 'Cargas Perigosa',
       p: 'Recomendado para empresas que precisam transportar mercadoria com uma taxa de risco como produtos químicos, inflamáveis, substâncias tóxicas e outros itens que apresentam riscos à segurança durante o transporte.',
     },
     {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/general-cargo.png',
+      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/general-cargo.png',
       h3: 'Cargas em Geral',
       p: 'Recomendado para empresas que desejam contratar para transporte de mercadorias de diferentes tipos e tamanhos.',
     },
 
     {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/fractionated-cargo.png',
+      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/fractionated-cargo.png',
       h3: 'Cargas Fracionada',
       p: 'Recomendado para empresas que desejam contratar apenas um espaço no veículo de transporte.',
     },
     {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/express-cargoperishable-cargo.png',
+      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/express-cargoperishable-cargo.png',
       h3: 'Cargas Expressa',
       p: 'Recomendado para empresas que precisam que o tempo de entrega da carga seja rápido. ',
     },
     {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/perishable-cargo.png',
+      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/perishable-cargo.png',
       h3: 'Cargas Perecível',
       p: 'Recomendado para empresas que necessita o transporte de alimentos, medicamentos e itens sensíveis à temperatura que requerem transporte refrigerado ou congelado para manter a qualidade.',
     },
     {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/dedicated-cargo.png',
+      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/dedicated-cargo.png',
       h3: 'Cargas Dedicada',
       p: 'Recomendado para empresas que tem a necessidade de um fornecimento exclusivo da carga.',
     },
     {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/pharmaceutical-cargo.png',
+      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/pharmaceutical-cargo.png',
       h3: 'Cargas Farmacêuticas',
       p: 'Recomendado para empresas que precisam transportar produtos farmacêuticos e medicamentos e que exige condições controladas de temperatura e segurança.',
     },
