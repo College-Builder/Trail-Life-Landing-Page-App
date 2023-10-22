@@ -32,6 +32,7 @@ a.default-logo {
 }
 
 /**/
+/**/
 
 .section-separator {
 	margin-top: 144px;
@@ -59,6 +60,7 @@ div.default-section {
 }
 
 /**/
+/**/
 
 div.default-button-container {
 	display: flex;
@@ -78,6 +80,7 @@ div.default-button-container {
 	}
 }
 
+/**/
 /**/
 
 $colors: (
@@ -103,12 +106,37 @@ $colors: (
 }
 
 .default-button {
+	&.--loading {
+		color: var(--gray);
+		border: solid 2px var(--gray);
+		pointer-events: none;
+
+		span.default-button__loading {
+			display: inline-block;
+		}
+	}
+
 	width: 100%;
 	border-radius: 8px;
 	padding: 16px 24px;
 	font-size: 18.4px;
 	font-weight: light;
 	text-align: center;
+
+	span.default-button__loading {
+		display: none;
+		animation: spinner 1s forwards linear infinite;
+	}
+}
+
+@keyframes spinner {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 @media (min-width: 900px) {
@@ -117,6 +145,7 @@ $colors: (
 	}
 }
 
+/**/
 /**/
 
 div.default-form-input-container {
@@ -183,5 +212,29 @@ div.default-input {
 			margin-right: 5.6px;
 			font-style: normal;
 		}
+	}
+}
+
+/**/
+/**/
+
+button.defaut-move-button {
+	&.--off {
+		filter: opacity(0%);
+		pointer-events: none;
+	}
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--red);
+	border-radius: 100%;
+	background-color: white;
+	width: 28px;
+	height: 28px;
+	transition: ease-in-out 0.35s;
+
+	i {
+		font-size: 40px;
 	}
 }

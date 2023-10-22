@@ -1,8 +1,8 @@
 {
-  "name": "trail-life-landing-page",
+  "name": "pj3-trail-life-landing-page-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && node ./dist/index.js"
@@ -14,13 +14,10 @@
     "@aws-sdk/client-ses": "^3.421.0",
     "aws-sdk": "^2.1467.0",
     "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "express-rate-limit": "^7.0.1",
-    "ks-fastlog": "^1.1.7"
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.17",
-    "@types/nodemailer": "^6.4.10",
     "dotenv": "^16.3.1"
   }
 }

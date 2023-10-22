@@ -1,54 +1,89 @@
+import * as modules from './modules.js';
+
 (() => {
-  const items = [
-    {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/bulk-liquid-cargoes.png',
-      h3: 'Cargas de Granéis Líquidos',
-      p: 'Recomendado para empresas que precisam transportar cargas como óleo cru, produtos químicos líquidos não perigosos e outros líquidos que são transportados em grandes quantidades.',
-    },
-    {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/special-cargoes.png',
-      h3: 'Cargas Especiais',
-      p: 'Recomendado para empresas que precisam transportar cargas pesadas e longas.',
-    },
-    {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/dangerous-cargo.png',
-      h3: 'Cargas Perigosa',
-      p: 'Recomendado para empresas que precisam transportar mercadoria com uma taxa de risco como produtos químicos, inflamáveis, substâncias tóxicas e outros itens que apresentam riscos à segurança durante o transporte.',
-    },
-    {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/general-cargo.png',
-      h3: 'Cargas em Geral',
-      p: 'Recomendado para empresas que desejam contratar para transporte de mercadorias de diferentes tipos e tamanhos.',
-    },
+  const template = window.document.querySelector(
+    'template[section-1__image-slider-template]',
+  );
 
-    {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/fractionated-cargo.png',
-      h3: 'Cargas Fracionada',
-      p: 'Recomendado para empresas que desejam contratar apenas um espaço no veículo de transporte.',
-    },
-    {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/express-cargoperishable-cargo.png',
-      h3: 'Cargas Expressa',
-      p: 'Recomendado para empresas que precisam que o tempo de entrega da carga seja rápido. ',
-    },
-    {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/perishable-cargo.png',
-      h3: 'Cargas Perecível',
-      p: 'Recomendado para empresas que necessita o transporte de alimentos, medicamentos e itens sensíveis à temperatura que requerem transporte refrigerado ou congelado para manter a qualidade.',
-    },
-    {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/dedicated-cargo.png',
-      h3: 'Cargas Dedicada',
-      p: 'Recomendado para empresas que tem a necessidade de um fornecimento exclusivo da carga.',
-    },
-    {
-      img: 'https://college-builder--pj3-trail-life-app--static.s3.amazonaws.com/assets/images/general/pharmaceutical-cargo.png',
-      h3: 'Cargas Farmacêuticas',
-      p: 'Recomendado para empresas que precisam transportar produtos farmacêuticos e medicamentos e que exige condições controladas de temperatura e segurança.',
-    },
-  ];
+  modules.section1Builder.forEach((item) => {
+    const templateUsable = template.content.cloneNode(true).children[0];
 
-  buildItems(parseItems(items));
+    templateUsable.setAttribute('href', item.href);
+    templateUsable.querySelector('source').setAttribute('srcset', item.srcset);
+    templateUsable.querySelector('img').setAttribute('src', item.src);
+
+    template.parentElement.append(templateUsable);
+  });
+})();
+
+(() => {
+  const div = window.document.querySelector('div[image-slider-container]');
+
+  if (!div) {
+    return;
+  }
+
+  const controller = {
+    imageSliderContainer: div,
+    imageSlider: div.querySelector('div[image-slider-container__image-slider]'),
+    numberOfPropagandas: div.querySelectorAll('img').length,
+    currentIndex: 0,
+    goingLeft: true,
+    isMoving: false,
+  };
+
+  setInterval(() => {
+    if (controller.goingLeft) {
+      modules.handlePropagandaScroll(controller, true);
+    } else {
+      modules.handlePropagandaScroll(controller, false);
+    }
+  }, 10000);
+
+  let restoreIsMoving;
+  let move = true;
+
+  controller.imageSliderContainer
+    .querySelectorAll('button')
+    .forEach((button, index) => {
+      button.addEventListener('mousedown', () => {
+        if (!move) {
+          return;
+        }
+
+        move = false;
+
+        setTimeout(() => {
+          move = true;
+        }, 600);
+
+        if (restoreIsMoving) {
+          clearTimeout(restoreIsMoving);
+        }
+
+        controller.isMoving = true;
+
+        modules.handlePropagandaScroll(
+          controller,
+          index === 0 ? false : true,
+          true,
+        );
+
+        restoreIsMoving = setTimeout(() => {
+          controller.isMoving = false;
+        }, 10000);
+      });
+    });
+
+  window.addEventListener('resize', () => {
+    controller.imageSlider.scrollLeft =
+      (controller.imageSlider.scrollWidth / controller.numberOfPropagandas) *
+      controller.currentIndex;
+  });
+})();
+
+(() => {
+  modules.buildSection4Builder();
 
   window.addEventListener('resize', () => {
     window.document
@@ -57,76 +92,8 @@
         div.remove();
       });
 
-    buildItems(parseItems(items));
+    modules.buildSection4Builder();
   });
-
-  function parseItems(items) {
-    const windowSize = window.innerWidth;
-    let loops;
-    let itemPerLoop;
-
-    if (windowSize < 700) {
-      loops = items.length;
-      itemPerLoop = 1;
-    } else if (windowSize < 1300) {
-      loops = items.length / 2;
-      itemPerLoop = 2;
-    } else {
-      loops = items.length / 3;
-      itemPerLoop = 3;
-    }
-
-    const parsedItems = [];
-    let currentItem = 0;
-
-    for (let c = 0; c < loops; c++) {
-      parsedItems.push([]);
-
-      for (let i = 0; i < itemPerLoop; i++) {
-        if (!items[currentItem]) {
-          parsedItems.pop();
-
-          continue;
-        }
-
-        parsedItems[c].push(items[currentItem]);
-
-        currentItem++;
-      }
-    }
-
-    return parsedItems;
-  }
-
-  function buildItems(items) {
-    const itemTemplate = window.document.querySelector(
-      'template[seciton-4__slider__slider-container__item__template]',
-    );
-
-    items.forEach((item) => {
-      const itemTemplateUsable =
-        itemTemplate.content.cloneNode(true).children[0];
-
-      const cardTemplate = itemTemplateUsable.querySelector(
-        'template[seciton-4__slider__slider-container__item__card__template]',
-      );
-
-      item.forEach((card) => {
-        const cardTemplateUsable =
-          cardTemplate.content.cloneNode(true).children[0];
-
-        const img = cardTemplateUsable.querySelector('img');
-        img.setAttribute('src', card.img);
-        img.setAttribute('h3', card.h3);
-        cardTemplateUsable.querySelector('h3').innerText = card.h3;
-        cardTemplateUsable.querySelector('p').innerText = card.p;
-
-        cardTemplate.parentNode.append(cardTemplateUsable);
-      });
-
-      itemTemplate.parentNode.append(itemTemplateUsable);
-    });
-  }
 })();
 
 (() => {
@@ -317,102 +284,43 @@
 (() => {
   const phoneInput = window.document.querySelector('input[phone-input]');
 
-  phoneInputProperties(phoneInput);
-
-  function phoneInputProperties(input) {
-    phoneInput.addEventListener('keydown', (event) => {
-      const input = event.target;
-      let value = String(input.value.replace(/\D/g, ''));
-
-      if (event.key === 'Backspace') {
-        if (value.length === 4) {
-          input.value = `+${value.slice(0, 2)} (${value.slice(2, 3)})`;
-        }
-
-        if (value.length === 3) {
-          input.value = value.slice(0, 3);
-        }
-      }
-    });
-
-    input.addEventListener('input', () => {
-      let value = String(input.value.replace(/\D/g, ''));
-
-      if (value.length === 0) {
-        input.value = '';
-      } else if (value.length <= 2) {
-        input.value = `+${value}`;
-      } else if (value.length === 3) {
-        input.value = `+${value.slice(0, 2)} (${value.charAt(2)})`;
-      } else if (value.length <= 4) {
-        input.value = `+${value.slice(0, 2)} (${value.slice(2, 4)})`;
-      } else if (value.length <= 9) {
-        input.value = `+${value.slice(0, 2)} (${value.slice(
-          2,
-          4,
-        )}) ${value.slice(4, 9)}`;
-      } else {
-        input.value = `+${value.slice(0, 2)} (${value.slice(
-          2,
-          4,
-        )}) ${value.slice(4, 9)}-${value.slice(9, 13)}`;
-      }
-    });
-  }
+  modules.setPhoneInputProperties(phoneInput);
 })();
 
 (() => {
-  const statusContainer = window.document.querySelector(
-    'div[email-form-status-container]',
-  );
-  const statusContainerContent = window.document.querySelector(
-    'div[email-form-status-container__content]',
-  );
-
-  const formContainer = window.document.querySelector(
-    'div[email-form-container]',
-  );
-
   window.document
     .querySelector('form[email-form-container__form]')
-    .addEventListener('submit', (e) => {
+    .addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = e.target.elements.name.value;
-      const phone = e.target.elements.phone.value;
-      const email = e.target.elements.email.value;
-      const message = e.target.elements.message.value;
+      const form = {
+        name: e.target.elements.name.value,
+        phone: e.target.elements.phone.value.replace(/\D/g, ''),
+        email: e.target.elements.email.value,
+        message: e.target.elements.message.value,
+      };
+
+      const showLoading = setTimeout(() => {
+        modules.handleFormLoading(true, 'submit-email-button');
+      }, 200);
+
+      const req = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (req.status === 200 || req.status === 500) {
+        modules.handleFormFinalResponse(req.status);
+      } else {
+        clearTimeout(showLoading);
+
+        const { label, message } = await req.json();
+
+        modules.handleFormErrorMessageResponse(label, message);
+        modules.handleFormLoading(false, 'submit-email-button');
+      }
     });
-
-  function handleErrorMessageResponse(label, message) {
-    const input = formContainer.querySelector(`input[name='${label}']`);
-    const inputContainer = input.parentNode;
-
-    formContainer.querySelector('i[error-message]').innerText = message;
-    inputContainer.classList.add('--show-error');
-  }
-
-  function handleFinalResponse(status500) {
-    if (status500) {
-      statusContainer.classList.add('--status-500');
-    }
-
-    formContainer.style.height = window.getComputedStyle(formContainer).height;
-
-    setTimeout(() => {
-      formContainer.style.filter = 'opacity(0%)';
-
-      setTimeout(() => {
-        formContainer.style.height = '0px';
-        statusContainer.style.height = window.getComputedStyle(
-          statusContainerContent,
-        ).height;
-        statusContainer.style.pointerEvents = 'all';
-
-        setTimeout(() => {
-          statusContainer.style.filter = 'opacity(100%)';
-        }, 600);
-      }, 500);
-    }, 200);
-  }
 })();

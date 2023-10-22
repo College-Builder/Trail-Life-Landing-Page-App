@@ -1,5 +1,5 @@
 import express from 'express';
-import GlobalModule from '../global-module/global-module';
+import GlobalModule from '../../global-module/global-module';
 import Module from './module';
 
 const rootApi = express.Router();
@@ -11,13 +11,8 @@ rootApi.post(
 		const { name, phone, email, message } = req.body;
 
 		try {
-			await GlobalModule.Mailer.sendPj3TrailLifeCustomerEmail(name, email);
-			await GlobalModule.Mailer.sendPj3TrailLifeUaaEmail(
-				name,
-				phone,
-				email,
-				message,
-			);
+			await Module.sendPj3TrailLifeCustomerEmail(name, email);
+			await Module.sendPj3TrailLifeUaaEmail(name, phone, email, message);
 
 			res.sendStatus(200);
 		} catch (err: any) {
