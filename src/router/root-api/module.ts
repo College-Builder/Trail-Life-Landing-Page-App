@@ -55,4 +55,27 @@ export default class Module {
 
 		return next();
 	}
+
+	static async sendPj3TrailLifeCustomerEmail(name: string, email: string) {
+		await GlobalModule.Mailer.sendTemplateEmail(
+			process.env.AWS_SES_SOURCE_EMAIL!,
+			[email],
+			process.env.AWS_SES_CLIENT_EMAIL_TEMPLATE!,
+			{ name: 'This is the customer email' },
+		);
+	}
+
+	static async sendPj3TrailLifeUaaEmail(
+		name: string,
+		phone: string,
+		email: string,
+		message: string,
+	) {
+		await GlobalModule.Mailer.sendTemplateEmail(
+			process.env.AWS_SES_SOURCE_EMAIL!,
+			process.env.AWS_SES_UAA_EMAIL!.split(',').map((item) => item.trim()),
+			process.env.AWS_SES_UAA_EMAIL_TEMPLATE!,
+			{ name: 'This is the uaa email' },
+		);
+	}
 }

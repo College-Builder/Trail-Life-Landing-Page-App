@@ -25,6 +25,7 @@ a.default-logo img {
   }
 }
 /**/
+/**/
 .section-separator {
   margin-top: 144px;
 }
@@ -45,6 +46,7 @@ div.default-section > h2 {
   }
 }
 /**/
+/**/
 div.default-button-container {
   display: flex;
   justify-content: center;
@@ -61,6 +63,7 @@ div.default-button-container a {
     margin-top: 72px;
   }
 }
+/**/
 /**/
 .--green-button {
   background-color: transparent;
@@ -112,6 +115,7 @@ div.default-button-container a {
     font-size: 20px;
   }
 }
+/**/
 /**/
 div.default-form-input-container {
   width: 100%;
@@ -168,6 +172,27 @@ div.default-input span.default-input__error-message {
 div.default-input span.default-input__error-message i {
   margin-right: 5.6px;
   font-style: normal;
+}
+
+/**/
+/**/
+button.defaut-move-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--red);
+  border-radius: 100%;
+  background-color: white;
+  width: 28px;
+  height: 28px;
+  transition: ease-in-out 0.35s;
+}
+button.defaut-move-button.--off {
+  filter: opacity(0%);
+  pointer-events: none;
+}
+button.defaut-move-button i {
+  font-size: 40px;
 }
 
 /*# sourceMappingURL=styles.css.map */

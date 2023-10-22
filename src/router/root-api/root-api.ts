@@ -11,13 +11,8 @@ rootApi.post(
 		const { name, phone, email, message } = req.body;
 
 		try {
-			await GlobalModule.Mailer.sendPj3TrailLifeCustomerEmail(name, email);
-			await GlobalModule.Mailer.sendPj3TrailLifeUaaEmail(
-				name,
-				phone,
-				email,
-				message,
-			);
+			await Module.sendPj3TrailLifeCustomerEmail(name, email);
+			await Module.sendPj3TrailLifeUaaEmail(name, phone, email, message);
 
 			res.sendStatus(200);
 		} catch (err: any) {

@@ -32,6 +32,7 @@ a.default-logo {
 }
 
 /**/
+/**/
 
 .section-separator {
 	margin-top: 144px;
@@ -59,6 +60,7 @@ div.default-section {
 }
 
 /**/
+/**/
 
 div.default-button-container {
 	display: flex;
@@ -78,6 +80,7 @@ div.default-button-container {
 	}
 }
 
+/**/
 /**/
 
 $colors: (
@@ -117,6 +120,7 @@ $colors: (
 	}
 }
 
+/**/
 /**/
 
 div.default-form-input-container {
@@ -183,5 +187,29 @@ div.default-input {
 			margin-right: 5.6px;
 			font-style: normal;
 		}
+	}
+}
+
+/**/
+/**/
+
+button.defaut-move-button {
+	&.--off {
+		filter: opacity(0%);
+		pointer-events: none;
+	}
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--red);
+	border-radius: 100%;
+	background-color: white;
+	width: 28px;
+	height: 28px;
+	transition: ease-in-out 0.35s;
+
+	i {
+		font-size: 40px;
 	}
 }

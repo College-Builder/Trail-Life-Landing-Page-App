@@ -1,48 +1,177 @@
 (() => {
   const items = [
     {
-      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/bulk-liquid-cargoes.png',
+      href: '#',
+      srcset: './assets/images/others/big.png',
+      src: './assets/images/others/small.png',
+    },
+    {
+      href: '#',
+      srcset: './assets/images/others/big.png',
+      src: './assets/images/others/small.png',
+    },
+  ];
+
+  const template = window.document.querySelector(
+    'template[section-1__image-slider-template]',
+  );
+
+  items.forEach((item) => {
+    const templateUsable = template.content.cloneNode(true).children[0];
+
+    templateUsable.setAttribute('href', item.href);
+    templateUsable.querySelector('source').setAttribute('srcset', item.srcset);
+    templateUsable.querySelector('img').setAttribute('src', item.src);
+
+    template.parentElement.append(templateUsable);
+  });
+})();
+
+(() => {
+  const div = window.document.querySelector('div[image-slider-container]');
+
+  if (!div) {
+    return;
+  }
+
+  const controller = {
+    imageSliderContainer: div,
+    imageSlider: div.querySelector('div[image-slider-container__image-slider]'),
+    numberOfPropagandas: div.querySelectorAll('img').length,
+    currentIndex: 0,
+    goingLeft: true,
+    isMoving: false,
+  };
+
+  setInterval(() => {
+    if (controller.goingLeft) {
+      handlePropagandaScroll(controller, true);
+    } else {
+      handlePropagandaScroll(controller, false);
+    }
+  }, 10000);
+
+  let restoreIsMoving;
+  let move = true;
+
+  controller.imageSliderContainer
+    .querySelectorAll('button')
+    .forEach((button, index) => {
+      button.addEventListener('mousedown', () => {
+        if (!move) {
+          return;
+        }
+
+        move = false;
+
+        setTimeout(() => {
+          move = true;
+        }, 600);
+
+        if (restoreIsMoving) {
+          clearTimeout(restoreIsMoving);
+        }
+
+        controller.isMoving = true;
+
+        handlePropagandaScroll(controller, index === 0 ? false : true, true);
+
+        restoreIsMoving = setTimeout(() => {
+          controller.isMoving = false;
+        }, 10000);
+      });
+    });
+
+  window.addEventListener('resize', () => {
+    controller.imageSlider.scrollLeft =
+      (controller.imageSlider.scrollWidth / controller.numberOfPropagandas) *
+      controller.currentIndex;
+  });
+
+  function handlePropagandaScroll(controller, forward, ignoreIsMoving = false) {
+    if (controller.isMoving && !ignoreIsMoving) {
+      return;
+    }
+
+    forward ? controller.currentIndex++ : controller.currentIndex--;
+
+    controller.imageSlider.scrollTo({
+      left:
+        (controller.imageSlider.scrollWidth / controller.numberOfPropagandas) *
+        controller.currentIndex,
+      top: 0,
+      behavior: 'smooth',
+    });
+
+    const container =
+      controller.imageSliderContainer.querySelectorAll('button');
+    const firstButton = container[0];
+    const lastButton = container[1];
+
+    firstButton.classList.remove('--off');
+    lastButton.classList.remove('--off');
+
+    if (controller.currentIndex + 1 >= controller.numberOfPropagandas) {
+      controller.currentIndex = controller.numberOfPropagandas - 1;
+      controller.goingLeft = false;
+
+      lastButton.classList.add('--off');
+    }
+
+    if (controller.currentIndex <= 0) {
+      controller.currentIndex = 0;
+      controller.goingLeft = true;
+
+      firstButton.classList.add('--off');
+    }
+  }
+})();
+
+(() => {
+  const items = [
+    {
+      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/bulk-liquid-cargoes.png',
       h3: 'Cargas de Granéis Líquidos',
       p: 'Recomendado para empresas que precisam transportar cargas como óleo cru, produtos químicos líquidos não perigosos e outros líquidos que são transportados em grandes quantidades.',
     },
     {
-      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/special-cargoes.png',
+      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/special-cargoes.png',
       h3: 'Cargas Especiais',
       p: 'Recomendado para empresas que precisam transportar cargas pesadas e longas.',
     },
     {
-      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/dangerous-cargo.png',
+      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/dangerous-cargo.png',
       h3: 'Cargas Perigosa',
       p: 'Recomendado para empresas que precisam transportar mercadoria com uma taxa de risco como produtos químicos, inflamáveis, substâncias tóxicas e outros itens que apresentam riscos à segurança durante o transporte.',
     },
     {
-      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/general-cargo.png',
+      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/general-cargo.png',
       h3: 'Cargas em Geral',
       p: 'Recomendado para empresas que desejam contratar para transporte de mercadorias de diferentes tipos e tamanhos.',
     },
 
     {
-      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/fractionated-cargo.png',
+      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/fractionated-cargo.png',
       h3: 'Cargas Fracionada',
       p: 'Recomendado para empresas que desejam contratar apenas um espaço no veículo de transporte.',
     },
     {
-      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/express-cargoperishable-cargo.png',
+      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/express-cargoperishable-cargo.png',
       h3: 'Cargas Expressa',
       p: 'Recomendado para empresas que precisam que o tempo de entrega da carga seja rápido. ',
     },
     {
-      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/perishable-cargo.png',
+      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/perishable-cargo.png',
       h3: 'Cargas Perecível',
       p: 'Recomendado para empresas que necessita o transporte de alimentos, medicamentos e itens sensíveis à temperatura que requerem transporte refrigerado ou congelado para manter a qualidade.',
     },
     {
-      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/dedicated-cargo.png',
+      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/dedicated-cargo.png',
       h3: 'Cargas Dedicada',
       p: 'Recomendado para empresas que tem a necessidade de um fornecimento exclusivo da carga.',
     },
     {
-      img: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/pharmaceutical-cargo.png',
+      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/pharmaceutical-cargo.png',
       h3: 'Cargas Farmacêuticas',
       p: 'Recomendado para empresas que precisam transportar produtos farmacêuticos e medicamentos e que exige condições controladas de temperatura e segurança.',
     },
@@ -116,7 +245,7 @@
           cardTemplate.content.cloneNode(true).children[0];
 
         const img = cardTemplateUsable.querySelector('img');
-        img.setAttribute('src', card.img);
+        img.setAttribute('src', card.src);
         img.setAttribute('h3', card.h3);
         cardTemplateUsable.querySelector('h3').innerText = card.h3;
         cardTemplateUsable.querySelector('p').innerText = card.p;
