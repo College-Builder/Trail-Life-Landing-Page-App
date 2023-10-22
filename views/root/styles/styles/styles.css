@@ -109,7 +109,27 @@ div.default-button-container a {
   font-weight: light;
   text-align: center;
 }
+.default-button.--loading {
+  color: var(--gray);
+  border: solid 2px var(--gray);
+  pointer-events: none;
+}
+.default-button.--loading span.default-button__loading {
+  display: inline-block;
+}
+.default-button span.default-button__loading {
+  display: none;
+  animation: spinner 1s forwards linear infinite;
+}
 
+@keyframes spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 @media (min-width: 900px) {
   .default-button-margin {
     font-size: 20px;

@@ -106,12 +106,37 @@ $colors: (
 }
 
 .default-button {
+	&.--loading {
+		color: var(--gray);
+		border: solid 2px var(--gray);
+		pointer-events: none;
+
+		span.default-button__loading {
+			display: inline-block;
+		}
+	}
+
 	width: 100%;
 	border-radius: 8px;
 	padding: 16px 24px;
 	font-size: 18.4px;
 	font-weight: light;
 	text-align: center;
+
+	span.default-button__loading {
+		display: none;
+		animation: spinner 1s forwards linear infinite;
+	}
+}
+
+@keyframes spinner {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 @media (min-width: 900px) {

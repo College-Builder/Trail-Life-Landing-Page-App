@@ -1,5 +1,4 @@
 import { Response } from 'express';
-import GlobalModule from '../global-module';
 
 export default class Middleware {
 	static throwMiddlewareError(
@@ -16,6 +15,10 @@ export default class Middleware {
 	}
 
 	static handleMiddlewareError(res: Response, err: any) {
+		if (err.label && err.status && err.status !== 500) {
+			return res.status(err.status).json(err);
+		}
+
 		console.error(err);
 
 		res.status(500).json({

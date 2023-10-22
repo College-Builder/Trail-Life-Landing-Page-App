@@ -1,22 +1,11 @@
-(() => {
-  const items = [
-    {
-      href: '#',
-      srcset: './assets/images/others/big.png',
-      src: './assets/images/others/small.png',
-    },
-    {
-      href: '#',
-      srcset: './assets/images/others/big.png',
-      src: './assets/images/others/small.png',
-    },
-  ];
+import * as modules from './modules.js';
 
+(() => {
   const template = window.document.querySelector(
     'template[section-1__image-slider-template]',
   );
 
-  items.forEach((item) => {
+  modules.section1Builder.forEach((item) => {
     const templateUsable = template.content.cloneNode(true).children[0];
 
     templateUsable.setAttribute('href', item.href);
@@ -45,9 +34,9 @@
 
   setInterval(() => {
     if (controller.goingLeft) {
-      handlePropagandaScroll(controller, true);
+      modules.handlePropagandaScroll(controller, true);
     } else {
-      handlePropagandaScroll(controller, false);
+      modules.handlePropagandaScroll(controller, false);
     }
   }, 10000);
 
@@ -74,7 +63,11 @@
 
         controller.isMoving = true;
 
-        handlePropagandaScroll(controller, index === 0 ? false : true, true);
+        modules.handlePropagandaScroll(
+          controller,
+          index === 0 ? false : true,
+          true,
+        );
 
         restoreIsMoving = setTimeout(() => {
           controller.isMoving = false;
@@ -87,97 +80,10 @@
       (controller.imageSlider.scrollWidth / controller.numberOfPropagandas) *
       controller.currentIndex;
   });
-
-  function handlePropagandaScroll(controller, forward, ignoreIsMoving = false) {
-    if (controller.isMoving && !ignoreIsMoving) {
-      return;
-    }
-
-    forward ? controller.currentIndex++ : controller.currentIndex--;
-
-    controller.imageSlider.scrollTo({
-      left:
-        (controller.imageSlider.scrollWidth / controller.numberOfPropagandas) *
-        controller.currentIndex,
-      top: 0,
-      behavior: 'smooth',
-    });
-
-    const container =
-      controller.imageSliderContainer.querySelectorAll('button');
-    const firstButton = container[0];
-    const lastButton = container[1];
-
-    firstButton.classList.remove('--off');
-    lastButton.classList.remove('--off');
-
-    if (controller.currentIndex + 1 >= controller.numberOfPropagandas) {
-      controller.currentIndex = controller.numberOfPropagandas - 1;
-      controller.goingLeft = false;
-
-      lastButton.classList.add('--off');
-    }
-
-    if (controller.currentIndex <= 0) {
-      controller.currentIndex = 0;
-      controller.goingLeft = true;
-
-      firstButton.classList.add('--off');
-    }
-  }
 })();
 
 (() => {
-  const items = [
-    {
-      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/bulk-liquid-cargoes.png',
-      h3: 'Cargas de Granéis Líquidos',
-      p: 'Recomendado para empresas que precisam transportar cargas como óleo cru, produtos químicos líquidos não perigosos e outros líquidos que são transportados em grandes quantidades.',
-    },
-    {
-      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/special-cargoes.png',
-      h3: 'Cargas Especiais',
-      p: 'Recomendado para empresas que precisam transportar cargas pesadas e longas.',
-    },
-    {
-      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/dangerous-cargo.png',
-      h3: 'Cargas Perigosa',
-      p: 'Recomendado para empresas que precisam transportar mercadoria com uma taxa de risco como produtos químicos, inflamáveis, substâncias tóxicas e outros itens que apresentam riscos à segurança durante o transporte.',
-    },
-    {
-      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/general-cargo.png',
-      h3: 'Cargas em Geral',
-      p: 'Recomendado para empresas que desejam contratar para transporte de mercadorias de diferentes tipos e tamanhos.',
-    },
-
-    {
-      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/fractionated-cargo.png',
-      h3: 'Cargas Fracionada',
-      p: 'Recomendado para empresas que desejam contratar apenas um espaço no veículo de transporte.',
-    },
-    {
-      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/express-cargoperishable-cargo.png',
-      h3: 'Cargas Expressa',
-      p: 'Recomendado para empresas que precisam que o tempo de entrega da carga seja rápido. ',
-    },
-    {
-      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/perishable-cargo.png',
-      h3: 'Cargas Perecível',
-      p: 'Recomendado para empresas que necessita o transporte de alimentos, medicamentos e itens sensíveis à temperatura que requerem transporte refrigerado ou congelado para manter a qualidade.',
-    },
-    {
-      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/dedicated-cargo.png',
-      h3: 'Cargas Dedicada',
-      p: 'Recomendado para empresas que tem a necessidade de um fornecimento exclusivo da carga.',
-    },
-    {
-      src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/pharmaceutical-cargo.png',
-      h3: 'Cargas Farmacêuticas',
-      p: 'Recomendado para empresas que precisam transportar produtos farmacêuticos e medicamentos e que exige condições controladas de temperatura e segurança.',
-    },
-  ];
-
-  buildItems(parseItems(items));
+  modules.buildSection4Builder();
 
   window.addEventListener('resize', () => {
     window.document
@@ -186,76 +92,8 @@
         div.remove();
       });
 
-    buildItems(parseItems(items));
+    modules.buildSection4Builder();
   });
-
-  function parseItems(items) {
-    const windowSize = window.innerWidth;
-    let loops;
-    let itemPerLoop;
-
-    if (windowSize < 700) {
-      loops = items.length;
-      itemPerLoop = 1;
-    } else if (windowSize < 1300) {
-      loops = items.length / 2;
-      itemPerLoop = 2;
-    } else {
-      loops = items.length / 3;
-      itemPerLoop = 3;
-    }
-
-    const parsedItems = [];
-    let currentItem = 0;
-
-    for (let c = 0; c < loops; c++) {
-      parsedItems.push([]);
-
-      for (let i = 0; i < itemPerLoop; i++) {
-        if (!items[currentItem]) {
-          parsedItems.pop();
-
-          continue;
-        }
-
-        parsedItems[c].push(items[currentItem]);
-
-        currentItem++;
-      }
-    }
-
-    return parsedItems;
-  }
-
-  function buildItems(items) {
-    const itemTemplate = window.document.querySelector(
-      'template[seciton-4__slider__slider-container__item__template]',
-    );
-
-    items.forEach((item) => {
-      const itemTemplateUsable =
-        itemTemplate.content.cloneNode(true).children[0];
-
-      const cardTemplate = itemTemplateUsable.querySelector(
-        'template[seciton-4__slider__slider-container__item__card__template]',
-      );
-
-      item.forEach((card) => {
-        const cardTemplateUsable =
-          cardTemplate.content.cloneNode(true).children[0];
-
-        const img = cardTemplateUsable.querySelector('img');
-        img.setAttribute('src', card.src);
-        img.setAttribute('h3', card.h3);
-        cardTemplateUsable.querySelector('h3').innerText = card.h3;
-        cardTemplateUsable.querySelector('p').innerText = card.p;
-
-        cardTemplate.parentNode.append(cardTemplateUsable);
-      });
-
-      itemTemplate.parentNode.append(itemTemplateUsable);
-    });
-  }
 })();
 
 (() => {
@@ -446,102 +284,43 @@
 (() => {
   const phoneInput = window.document.querySelector('input[phone-input]');
 
-  phoneInputProperties(phoneInput);
-
-  function phoneInputProperties(input) {
-    phoneInput.addEventListener('keydown', (event) => {
-      const input = event.target;
-      let value = String(input.value.replace(/\D/g, ''));
-
-      if (event.key === 'Backspace') {
-        if (value.length === 4) {
-          input.value = `+${value.slice(0, 2)} (${value.slice(2, 3)})`;
-        }
-
-        if (value.length === 3) {
-          input.value = value.slice(0, 3);
-        }
-      }
-    });
-
-    input.addEventListener('input', () => {
-      let value = String(input.value.replace(/\D/g, ''));
-
-      if (value.length === 0) {
-        input.value = '';
-      } else if (value.length <= 2) {
-        input.value = `+${value}`;
-      } else if (value.length === 3) {
-        input.value = `+${value.slice(0, 2)} (${value.charAt(2)})`;
-      } else if (value.length <= 4) {
-        input.value = `+${value.slice(0, 2)} (${value.slice(2, 4)})`;
-      } else if (value.length <= 9) {
-        input.value = `+${value.slice(0, 2)} (${value.slice(
-          2,
-          4,
-        )}) ${value.slice(4, 9)}`;
-      } else {
-        input.value = `+${value.slice(0, 2)} (${value.slice(
-          2,
-          4,
-        )}) ${value.slice(4, 9)}-${value.slice(9, 13)}`;
-      }
-    });
-  }
+  modules.setPhoneInputProperties(phoneInput);
 })();
 
 (() => {
-  const statusContainer = window.document.querySelector(
-    'div[email-form-status-container]',
-  );
-  const statusContainerContent = window.document.querySelector(
-    'div[email-form-status-container__content]',
-  );
-
-  const formContainer = window.document.querySelector(
-    'div[email-form-container]',
-  );
-
   window.document
     .querySelector('form[email-form-container__form]')
-    .addEventListener('submit', (e) => {
+    .addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = e.target.elements.name.value;
-      const phone = e.target.elements.phone.value;
-      const email = e.target.elements.email.value;
-      const message = e.target.elements.message.value;
+      const form = {
+        name: e.target.elements.name.value,
+        phone: e.target.elements.phone.value.replace(/\D/g, ''),
+        email: e.target.elements.email.value,
+        message: e.target.elements.message.value,
+      };
+
+      const showLoading = setTimeout(() => {
+        modules.handleFormLoading(true, 'submit-email-button');
+      }, 200);
+
+      const req = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (req.status === 200 || req.status === 500) {
+        modules.handleFormFinalResponse(req.status);
+      } else {
+        clearTimeout(showLoading);
+
+        const { label, message } = await req.json();
+
+        modules.handleFormErrorMessageResponse(label, message);
+        modules.handleFormLoading(false, 'submit-email-button');
+      }
     });
-
-  function handleErrorMessageResponse(label, message) {
-    const input = formContainer.querySelector(`input[name='${label}']`);
-    const inputContainer = input.parentNode;
-
-    formContainer.querySelector('i[error-message]').innerText = message;
-    inputContainer.classList.add('--show-error');
-  }
-
-  function handleFinalResponse(status500) {
-    if (status500) {
-      statusContainer.classList.add('--status-500');
-    }
-
-    formContainer.style.height = window.getComputedStyle(formContainer).height;
-
-    setTimeout(() => {
-      formContainer.style.filter = 'opacity(0%)';
-
-      setTimeout(() => {
-        formContainer.style.height = '0px';
-        statusContainer.style.height = window.getComputedStyle(
-          statusContainerContent,
-        ).height;
-        statusContainer.style.pointerEvents = 'all';
-
-        setTimeout(() => {
-          statusContainer.style.filter = 'opacity(100%)';
-        }, 600);
-      }, 500);
-    }, 200);
-  }
 })();

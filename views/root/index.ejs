@@ -31,7 +31,8 @@
     <!---->
     <!---->
     <script defer src="./scripts/header.js"></script>
-    <script type="module" defer src="./scripts/main.js"></script>
+    <script defer type="module" src="./scripts/main.js"></script>
+    <script defer type="module" src="./scripts/modules.js"></script>
     <!---->
     <!---->
     <link rel="stylesheet" href="./styles/index/index.css" />
@@ -48,6 +49,10 @@
       integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
   </head>
   <body>
@@ -480,7 +485,7 @@
                 <div>
                   <div class="default-form-input-container">
                     <label for="email-form-name">Nome:</label>
-                    <div class="default-input">
+                    <div default-input class="default-input">
                       <input
                         placeholder="Nome"
                         type="text"
@@ -495,7 +500,7 @@
                   </div>
                   <div class="default-form-input-container">
                     <label for="email-form-phone">Celular:</label>
-                    <div class="default-input">
+                    <div default-input class="default-input">
                       <input
                         phone-input
                         placeholder="+55 (99) 9999-99999"
@@ -512,7 +517,7 @@
                 </div>
                 <div class="default-form-input-container">
                   <label for="email-form-email">Email:</label>
-                  <div class="default-input">
+                  <div default-input class="default-input">
                     <input
                       placeholder="xxx@x.com"
                       type="text"
@@ -527,7 +532,7 @@
                 </div>
                 <div class="default-form-input-container">
                   <label for="email-form-message">Mensagem:</label>
-                  <div class="default-input">
+                  <div default-input class="default-input">
                     <textarea
                       placeholder="Mensagem"
                       name="message"
@@ -543,8 +548,12 @@
               <div>
                 <div class="default-button-container">
                   <button
+                    submit-email-button
                     class="default-button default-button-margin --red-button"
                   >
+                    <span class="default-button__loading">
+                      <i class="bi bi-arrow-clockwise"></i>
+                    </span>
                     Enviar
                   </button>
                 </div>
