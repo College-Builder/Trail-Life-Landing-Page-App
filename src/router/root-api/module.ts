@@ -56,16 +56,21 @@ export default class Module {
 		}
 	}
 
-	static async sendPj3TrailLifeCustomerEmail(name: string, email: string) {
+	static async sendTrailLifeCustomerEmail(name: string, email: string) {
 		await GlobalModule.Mailer.sendTemplateEmail(
 			process.env.AWS_SES_SOURCE_EMAIL!,
 			[email],
 			process.env.AWS_SES_CLIENT_EMAIL_TEMPLATE!,
-			{ name: 'This is the customer email' },
+			{
+				title: 'Recebemos seu email',
+				name,
+				message:
+					'Obrigado por entrar em contato. Em breve um de nossos associados entrará em contato com você. Caso tenha mais alguma dúvida, sinta-se à vontade para entrar em contato pelos meios abaixo.',
+			},
 		);
 	}
 
-	static async sendPj3TrailLifeUaaEmail(
+	static async sendTrailLifeUaaEmail(
 		name: string,
 		phone: string,
 		email: string,
@@ -75,7 +80,11 @@ export default class Module {
 			process.env.AWS_SES_SOURCE_EMAIL!,
 			process.env.AWS_SES_UAA_EMAIL!.split(',').map((item) => item.trim()),
 			process.env.AWS_SES_UAA_EMAIL_TEMPLATE!,
-			{ name: 'This is the uaa email' },
+			{
+				title: 'Novo cliente pedindo atendimento',
+				name: 'Setor de Atendimento ao Cliente',
+				message: `Recebemos uma nova solicitação de atendimento pelo site da Trail Life. O nome do novo cliente é ${name}, e seus contatos são: telefone (${phone}) e e-mail (${email}). A seguir, está a mensagem recebida de ${name}: "${message}"`,
+			},
 		);
 	}
 }
