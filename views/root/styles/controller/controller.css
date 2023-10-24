@@ -1,99 +1,99 @@
-h1.global__font-size-controller {
+h1.font-size-controller {
   font-size: 65px;
 }
 
-h2.global__font-size-controller {
+h2.font-size-controller {
   font-size: 30.4px;
 }
 
-h3.global__font-size-controller {
+h3.font-size-controller {
   font-size: 20px;
 }
 
-span.global__font-size-controller {
+span.font-size-controller {
   font-size: 18.4px;
 }
 
 @media (min-width: 1300px) {
-  h2.global__font-size-controller {
+  h2.font-size-controller {
     font-size: 35.2px;
   }
-  h3.global__font-size-controller {
+  h3.font-size-controller {
     font-size: 24px;
   }
 }
 /**/
-.global__small-hrz-padding {
+.small-hrz-padding {
   padding-left: calc(28px / 2);
   padding-right: calc(28px / 2);
 }
 @media (min-width: 350px) {
-  .global__small-hrz-padding {
+  .small-hrz-padding {
     padding-left: calc(36px / 3.2);
     padding-right: calc(36px / 3.2);
   }
 }
 @media (min-width: 600px) {
-  .global__small-hrz-padding {
+  .small-hrz-padding {
     padding-left: calc(72px / 2);
     padding-right: calc(72px / 2);
   }
 }
 @media (min-width: 1000px) {
-  .global__small-hrz-padding {
+  .small-hrz-padding {
     padding-left: calc(120px / 2);
     padding-right: calc(120px / 2);
   }
 }
 @media (min-width: 1300px) {
-  .global__small-hrz-padding {
+  .small-hrz-padding {
     padding-left: calc(200px / 2);
     padding-right: calc(200px / 2);
   }
 }
 @media (min-width: 1600px) {
-  .global__small-hrz-padding {
+  .small-hrz-padding {
     padding-left: calc(256px / 2);
     padding-right: calc(256px / 2);
   }
 }
 
-.global__default-hrz-padding {
+.default-hrz-padding {
   padding-left: 28px;
   padding-right: 28px;
 }
 @media (min-width: 350px) {
-  .global__default-hrz-padding {
+  .default-hrz-padding {
     padding-left: 36px;
     padding-right: 36px;
   }
 }
 @media (min-width: 600px) {
-  .global__default-hrz-padding {
+  .default-hrz-padding {
     padding-left: 72px;
     padding-right: 72px;
   }
 }
 @media (min-width: 1000px) {
-  .global__default-hrz-padding {
+  .default-hrz-padding {
     padding-left: 120px;
     padding-right: 120px;
   }
 }
 @media (min-width: 1300px) {
-  .global__default-hrz-padding {
+  .default-hrz-padding {
     padding-left: 200px;
     padding-right: 200px;
   }
 }
 @media (min-width: 1600px) {
-  .global__default-hrz-padding {
+  .default-hrz-padding {
     padding-left: 256px;
     padding-right: 256px;
   }
 }
 @media (min-width: 1920px) {
-  .global__default-hrz-padding {
+  .default-hrz-padding {
     padding-left: 392px;
     padding-right: 392px;
   }
