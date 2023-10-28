@@ -294,7 +294,7 @@
         handleFormLoading(true, 'submit-email-button');
       }, 200);
 
-      const req = await fetch('/api/send-email', {
+      const req = await fetch('/trail-life/home-page/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -302,15 +302,15 @@
         body: JSON.stringify(form),
       });
 
-      if (req.status === 200 || req.status === 500) {
-        handleFormFinalResponse(req.status);
-      } else {
+      if (req.status === 400) {
         clearTimeout(showLoading);
 
         const { label, message } = await req.json();
 
         handleFormErrorMessageResponse(label, message);
         handleFormLoading(false, 'submit-email-button');
+      } else {
+        handleFormFinalResponse(req.status === 200 ? false : true);
       }
     });
 })();

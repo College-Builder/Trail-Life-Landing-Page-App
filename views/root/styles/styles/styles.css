@@ -26,17 +26,27 @@ a.default-logo img {
 }
 /**/
 /**/
-.margin-section-separator {
-  margin-top: 180px;
+.section-separator {
+  margin-top: 40px;
+  padding-top: 140px;
+}
+.section-separator.--big-section-separator {
+  margin-top: 60px;
+  padding-top: 140px;
 }
 
-.padding-section-separator {
-  padding-top: 180px;
+@media (min-width: 1300px) {
+  .section-separator {
+    margin-top: 0px;
+    padding-top: 180px;
+  }
+  .section-separator.--big-section-separator {
+    margin-top: 0px;
+    padding-top: 220px;
+  }
 }
-.padding-section-separator.--big-padding-section-separator {
-  padding-top: 220px;
-}
-
+/**/
+/**/
 div.default-section > h2 {
   text-align: center;
   margin-bottom: 56px;
@@ -104,17 +114,25 @@ div.default-button-container a {
 }
 
 .default-button {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   border-radius: 8px;
   padding: 16px 24px;
   font-size: 18.4px;
   font-weight: light;
   text-align: center;
+  position: relative;
 }
 .default-button.--loading {
   color: var(--gray);
   border: solid 2px var(--gray);
   pointer-events: none;
+}
+.default-button.--loading:hover {
+  background-color: transparent;
 }
 .default-button.--loading span.default-button__loading {
   display: inline-block;
@@ -122,6 +140,11 @@ div.default-button-container a {
 .default-button span.default-button__loading {
   display: none;
   animation: spinner 1s forwards linear infinite;
+}
+.default-button span.default-button__loading i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes spinner {

@@ -168,7 +168,7 @@ function handleFormErrorMessageResponse(label, message) {
   container.querySelector('i[error-message]').innerText = message;
 }
 
-function handleFormFinalResponse(status) {
+function handleFormFinalResponse(error) {
   const statusContainer = window.document.querySelector(
     'div[email-form-status-container]',
   );
@@ -179,7 +179,7 @@ function handleFormFinalResponse(status) {
     'div[email-form-container]',
   );
 
-  if (status && status === 500) {
+  if (error) {
     statusContainer.classList.add('--status-500');
   }
 

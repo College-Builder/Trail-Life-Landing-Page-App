@@ -34,17 +34,30 @@ a.default-logo {
 /**/
 /**/
 
-.margin-section-separator {
-	margin-top: 180px;
-}
-
-.padding-section-separator {
-	&.--big-padding-section-separator {
-		padding-top: 220px;
+.section-separator {
+	&.--big-section-separator {
+		margin-top: 60px;
+		padding-top: 140px;
 	}
 
-	padding-top: 180px;
+	margin-top: 40px;
+	padding-top: 140px;
 }
+
+@media (min-width: 1300px) {
+	.section-separator {
+		&.--big-section-separator {
+			margin-top: 0px;
+			padding-top: 220px;
+		}
+
+		margin-top: 0px;
+		padding-top: 180px;
+	}
+}
+
+/**/
+/**/
 
 div.default-section {
 	& > h2 {
@@ -109,6 +122,10 @@ $colors: (
 
 .default-button {
 	&.--loading {
+		&:hover {
+			background-color: transparent;
+		}
+
 		color: var(--gray);
 		border: solid 2px var(--gray);
 		pointer-events: none;
@@ -118,16 +135,27 @@ $colors: (
 		}
 	}
 
+	display: flex;
+	gap: 4px;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	border-radius: 8px;
 	padding: 16px 24px;
 	font-size: 18.4px;
 	font-weight: light;
 	text-align: center;
+	position: relative;
 
 	span.default-button__loading {
 		display: none;
 		animation: spinner 1s forwards linear infinite;
+
+		i {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 	}
 }
 

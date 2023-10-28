@@ -7,11 +7,9 @@ dotenv.config();
 
 const app = express();
 
-app.set('view engine', 'ejs');
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('*', router);
+app.use('*/home-page', router);
 
 export const handler = serverless(app);
