@@ -30,8 +30,12 @@ footer > div > div:first-of-type > div > ul li a i {
   color: var(--red);
   margin-right: 8px;
 }
-footer > div > div:first-of-type > div:nth-of-type(2) a, footer > div > div:first-of-type > div:nth-of-type(3) a {
+footer > div > div:first-of-type > div:nth-of-type(2) a, footer > div > div:first-of-type > div:nth-of-type(3) a, footer > div > div:first-of-type > div:nth-of-type(4) a {
   color: var(--dark-gray);
+  transition: ease-in-out 0.35s;
+}
+footer > div > div:first-of-type > div:nth-of-type(2) a:hover, footer > div > div:first-of-type > div:nth-of-type(3) a:hover, footer > div > div:first-of-type > div:nth-of-type(4) a:hover {
+  color: var(--red);
 }
 footer > div > div:nth-of-type(2) ul {
   display: flex;

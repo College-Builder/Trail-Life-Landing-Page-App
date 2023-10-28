@@ -1,7 +1,7 @@
-import * as dotenv from 'dotenv';
 import express from 'express';
+import serverless from 'serverless-http';
+import * as dotenv from 'dotenv';
 import router from './router/router';
-import path from 'path';
 
 dotenv.config();
 
@@ -12,13 +12,15 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded());
 
-app.use('/', express.static(path.join(__dirname, '../views/root')));
-
 app.use('/', router);
 
+export const handler = serverless(app);
+
+/*
 const port = 2003;
 
 app.listen(port, () => {
 	console.clear();
 	console.log(`http://localhost:${port}`);
 });
+*/

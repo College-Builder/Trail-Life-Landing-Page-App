@@ -1,11 +1,9 @@
-import * as modules from './modules.js';
-
 (() => {
   const template = window.document.querySelector(
     'template[section-1__image-slider-template]',
   );
 
-  modules.section1Builder.forEach((item) => {
+  section1Builder.forEach((item) => {
     const templateUsable = template.content.cloneNode(true).children[0];
 
     templateUsable.setAttribute('href', item.href);
@@ -19,10 +17,6 @@ import * as modules from './modules.js';
 (() => {
   const div = window.document.querySelector('div[image-slider-container]');
 
-  if (!div) {
-    return;
-  }
-
   const controller = {
     imageSliderContainer: div,
     imageSlider: div.querySelector('div[image-slider-container__image-slider]'),
@@ -34,9 +28,9 @@ import * as modules from './modules.js';
 
   setInterval(() => {
     if (controller.goingLeft) {
-      modules.handlePropagandaScroll(controller, true);
+      handlePropagandaScroll(controller, true);
     } else {
-      modules.handlePropagandaScroll(controller, false);
+      handlePropagandaScroll(controller, false);
     }
   }, 10000);
 
@@ -63,11 +57,7 @@ import * as modules from './modules.js';
 
         controller.isMoving = true;
 
-        modules.handlePropagandaScroll(
-          controller,
-          index === 0 ? false : true,
-          true,
-        );
+        handlePropagandaScroll(controller, index === 0 ? false : true, true);
 
         restoreIsMoving = setTimeout(() => {
           controller.isMoving = false;
@@ -83,7 +73,7 @@ import * as modules from './modules.js';
 })();
 
 (() => {
-  modules.buildSection4Builder();
+  buildSection4Builder(section4Builder);
 
   window.addEventListener('resize', () => {
     window.document
@@ -92,7 +82,7 @@ import * as modules from './modules.js';
         div.remove();
       });
 
-    modules.buildSection4Builder();
+    buildSection4Builder(section4Builder);
   });
 })();
 
@@ -284,7 +274,7 @@ import * as modules from './modules.js';
 (() => {
   const phoneInput = window.document.querySelector('input[phone-input]');
 
-  modules.setPhoneInputProperties(phoneInput);
+  setPhoneInputProperties(phoneInput);
 })();
 
 (() => {
@@ -301,7 +291,7 @@ import * as modules from './modules.js';
       };
 
       const showLoading = setTimeout(() => {
-        modules.handleFormLoading(true, 'submit-email-button');
+        handleFormLoading(true, 'submit-email-button');
       }, 200);
 
       const req = await fetch('/api/send-email', {
@@ -313,14 +303,14 @@ import * as modules from './modules.js';
       });
 
       if (req.status === 200 || req.status === 500) {
-        modules.handleFormFinalResponse(req.status);
+        handleFormFinalResponse(req.status);
       } else {
         clearTimeout(showLoading);
 
         const { label, message } = await req.json();
 
-        modules.handleFormErrorMessageResponse(label, message);
-        modules.handleFormLoading(false, 'submit-email-button');
+        handleFormErrorMessageResponse(label, message);
+        handleFormLoading(false, 'submit-email-button');
       }
     });
 })();

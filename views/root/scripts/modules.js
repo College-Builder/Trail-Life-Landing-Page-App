@@ -1,21 +1,4 @@
-export const section1Builder = [
-  {
-    href: '#',
-    srcset: './assets/images/others/big.png',
-    src: './assets/images/others/small.png',
-  },
-  {
-    href: '#',
-    srcset: './assets/images/others/big.png',
-    src: './assets/images/others/small.png',
-  },
-];
-
-export function handlePropagandaScroll(
-  controller,
-  forward,
-  ignoreIsMoving = false,
-) {
+function handlePropagandaScroll(controller, forward, ignoreIsMoving = false) {
   if (controller.isMoving && !ignoreIsMoving) {
     return;
   }
@@ -51,55 +34,6 @@ export function handlePropagandaScroll(
     firstButton.classList.add('--off');
   }
 }
-
-const section4Builder = [
-  {
-    src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/bulk-liquid-cargoes.png',
-    h3: 'Cargas de Granéis Líquidos',
-    p: 'Recomendado para empresas que precisam transportar cargas como óleo cru, produtos químicos líquidos não perigosos e outros líquidos que são transportados em grandes quantidades.',
-  },
-  {
-    src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/special-cargoes.png',
-    h3: 'Cargas Especiais',
-    p: 'Recomendado para empresas que precisam transportar cargas pesadas e longas.',
-  },
-  {
-    src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/dangerous-cargo.png',
-    h3: 'Cargas Perigosa',
-    p: 'Recomendado para empresas que precisam transportar mercadoria com uma taxa de risco como produtos químicos, inflamáveis, substâncias tóxicas e outros itens que apresentam riscos à segurança durante o transporte.',
-  },
-  {
-    src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/general-cargo.png',
-    h3: 'Cargas em Geral',
-    p: 'Recomendado para empresas que desejam contratar para transporte de mercadorias de diferentes tipos e tamanhos.',
-  },
-
-  {
-    src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/fractionated-cargo.png',
-    h3: 'Cargas Fracionada',
-    p: 'Recomendado para empresas que desejam contratar apenas um espaço no veículo de transporte.',
-  },
-  {
-    src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/express-cargoperishable-cargo.png',
-    h3: 'Cargas Expressa',
-    p: 'Recomendado para empresas que precisam que o tempo de entrega da carga seja rápido. ',
-  },
-  {
-    src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/perishable-cargo.png',
-    h3: 'Cargas Perecível',
-    p: 'Recomendado para empresas que necessita o transporte de alimentos, medicamentos e itens sensíveis à temperatura que requerem transporte refrigerado ou congelado para manter a qualidade.',
-  },
-  {
-    src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/dedicated-cargo.png',
-    h3: 'Cargas Dedicada',
-    p: 'Recomendado para empresas que tem a necessidade de um fornecimento exclusivo da carga.',
-  },
-  {
-    src: 'https://college-builder--pj3--trail-life--landing-page-app--static.s3.amazonaws.com/assets/images/general/pharmaceutical-cargo.png',
-    h3: 'Cargas Farmacêuticas',
-    p: 'Recomendado para empresas que precisam transportar produtos farmacêuticos e medicamentos e que exige condições controladas de temperatura e segurança.',
-  },
-];
 
 function parseItems(items) {
   const windowSize = window.innerWidth;
@@ -139,7 +73,7 @@ function parseItems(items) {
   return parsedItems;
 }
 
-export function buildSection4Builder() {
+function buildSection4Builder(section4Builder) {
   const items = parseItems(section4Builder);
 
   const itemTemplate = window.document.querySelector(
@@ -170,7 +104,7 @@ export function buildSection4Builder() {
   });
 }
 
-export function setPhoneInputProperties(input) {
+function setPhoneInputProperties(input) {
   input.addEventListener('keydown', (event) => {
     const input = event.target;
     let value = String(input.value.replace(/\D/g, ''));
@@ -211,7 +145,7 @@ export function setPhoneInputProperties(input) {
   });
 }
 
-export function handleFormLoading(loading, buttonTag) {
+function handleFormLoading(loading, buttonTag) {
   const button = window.document.querySelector(`button[${buttonTag}]`);
 
   if (loading) {
@@ -221,7 +155,7 @@ export function handleFormLoading(loading, buttonTag) {
   }
 }
 
-export function handleFormErrorMessageResponse(label, message) {
+function handleFormErrorMessageResponse(label, message) {
   window.document.querySelectorAll('div[default-input]').forEach((div) => {
     div.classList.remove('--show-error');
   });
@@ -234,7 +168,7 @@ export function handleFormErrorMessageResponse(label, message) {
   container.querySelector('i[error-message]').innerText = message;
 }
 
-export function handleFormFinalResponse(status) {
+function handleFormFinalResponse(status) {
   const statusContainer = window.document.querySelector(
     'div[email-form-status-container]',
   );

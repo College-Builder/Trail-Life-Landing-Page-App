@@ -26,15 +26,17 @@ a.default-logo img {
 }
 /**/
 /**/
-.section-separator {
-  margin-top: 144px;
+.margin-section-separator {
+  margin-top: 180px;
 }
 
-@media (min-width: 1300px) {
-  .section-separator {
-    margin-top: 180px;
-  }
+.padding-section-separator {
+  padding-top: 180px;
 }
+.padding-section-separator.--big-padding-section-separator {
+  padding-top: 220px;
+}
+
 div.default-section > h2 {
   text-align: center;
   margin-bottom: 56px;
