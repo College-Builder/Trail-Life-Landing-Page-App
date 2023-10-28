@@ -10,17 +10,8 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
-app.use('/', router);
+app.use('*', router);
 
 export const handler = serverless(app);
-
-/*
-const port = 2003;
-
-app.listen(port, () => {
-	console.clear();
-	console.log(`http://localhost:${port}`);
-});
-*/
