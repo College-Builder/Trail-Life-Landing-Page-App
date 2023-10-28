@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && node ./dist/index.js",
-    "zip": "tsc && zip -r project.zip ./"
+    "zip": "tsc && zip -r trail-life-landing-page-app ./"
   },
   "keywords": [],
   "author": "",
