@@ -33,9 +33,11 @@ A landing page é composta por quatro seções principais:
 
 O projeto foi desenvolvido usando as seguintes ferramentas e tecnologias:
 
-- HTML: linguagem de marcação usada para estruturar o conteúdo da página web.
-- CSS: linguagem de estilização usada para definir a aparência da página web.
-- JavaScript: linguagem de programação usada para adicionar interatividade à página web.
+- HTML (Hypertext Markup Language): Continua sendo a linguagem de marcação fundamental para estruturar o conteúdo da página web.
+- CSS (Cascading Style Sheets): Mantém seu papel essencial na definição da aparência e estilo da página web.
+- JavaScript: Ainda é utilizado para adicionar interatividade e funcionalidades dinâmicas à página web.
+- TypeScript: Foi integrado ao projeto para trazer tipagem estática ao JavaScript, o que proporciona um código mais robusto e com menos erros potenciais durante o desenvolvimento.
+- Node.js: Agora faz parte da arquitetura, permitindo a execução de código JavaScript no lado do servidor, proporcionando escalabilidade e eficiência no processamento de requisições.
 
 ## Arquitetura Cloud
 
@@ -48,6 +50,31 @@ O diagrama da arquitetura do servidor cloud foi aprimorado para oferecer uma lan
 - SES (Simple Email Service): Permanece como a solução para o envio de e-mails, garantindo a confiabilidade na comunicação com os usuários.
 
 <img src="https://github.com/College-Builder/College-Builder/blob/main/global-assets/Trail-Life-Landing-Page-App/diagram.png"/>
+
+## Setup
+
+### Para configurar o projeto, basta seguir os passos abaixo:
+
+1. Faça um clone do repositório usando o comando `git clone`.
+2. Configure o arquivo `.env` com as variáveis de ambiente necessárias.
+3. Execute o comando `npm install` para instalar as dependências.
+4. Inicie o projeto com o comando `npm start`.
+
+Lembrando que o projeto utiliza TypeScript e Node.js, portanto, é essencial ter essas linguagens instaladas em seu ambiente de desenvolvimento. Dessa forma, você estará pronto para começar a trabalhar no projeto de forma eficiente e segura.
+
+### Arquivo .env
+
+```env
+AWS_SES_REGION="us-east-1"
+
+AWS_SES_SOURCE_EMAIL="ses-emai@xxx.com (ex. no-reply@xxx.com)"
+
+AWS_SES_CLIENT_EMAIL_TEMPLATE="ses-template-name (modelo de e-mail a ser enviado ao cliente)"
+
+AWS_SES_UAA_EMAIL="example-1@xxx.com, example-2@xxx.com"
+
+AWS_SES_UAA_EMAIL_TEMPLATE=ses-template-name (modelo de e-mail a ser enviado ao suporte ao cliente)"
+```
 
 ## License
 
