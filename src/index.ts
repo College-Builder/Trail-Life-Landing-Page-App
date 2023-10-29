@@ -12,4 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('*/home-page', router);
 
+app.listen(2003);
+
 export const handler = serverless(app);

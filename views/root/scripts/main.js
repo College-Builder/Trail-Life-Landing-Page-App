@@ -205,13 +205,7 @@
   }
 })();
 
-(() => {
-  handleAccordionContainer();
-})();
-
-(() => {
-  setPhoneInputProperties(window.document.querySelector('input[phone-input]'));
-})();
+handleAccordionContainer();
 
 (() => {
   const form = window.document.querySelector(
