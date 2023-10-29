@@ -26,7 +26,7 @@ A landing page é composta por quatro seções principais:
 
 - Demanda: Esta seção apresenta a empresa Trail Life e suas qualidades de transporte de cargas.
 - Serviços: Esta seção fornece mais informações sobre os serviços oferecidos pela Trail Life.
-- Funcionalidades: Esta seção destaca as funcionalidades da que a empresa oferece para motoristas e clientes.
+- Funcionalidades: Esta seção destaca as funcionalidades que a empresa oferece para motoristas e clientes.
 - Contato: Esta seção fornece feature de contato com a Trail Life por email.
 
 ## Ferramentas 
