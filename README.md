@@ -18,7 +18,9 @@ A empresa de transporte fictícia "Trail Life" foi desenvolvida como parte do pr
 
 ## Projeto 
 
-<img src="https://github.com/College-Builder/College-Builder/blob/main/global-assets/Trail-Life-Landing-Page-App/screenshot.png"/>
+<a href="https://collegebuilder.easyvirtual.net/trail-life/home-page">
+  <img src="https://github.com/College-Builder/College-Builder/blob/main/global-assets/Trail-Life-Landing-Page-App/screenshot.png"/>
+</a>
 
 O projeto Trail Life Transportadora foi desenvolvido com fins acadêmicos, com o objetivo de aplicar os conhecimentos adquiridos em HTML, CSS, JavaScript, AWS e API Gateway. O projeto consiste em uma landing page para uma transportadora fictícia, chamada Trail Life.
 
