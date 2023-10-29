@@ -22,6 +22,8 @@ A empresa de transporte fictícia "Trail Life" foi desenvolvida como parte do pr
 
 O projeto Trail Life Transportadora foi desenvolvido com fins acadêmicos, com o objetivo de aplicar os conhecimentos adquiridos em HTML, CSS, JavaScript, AWS e API Gateway. O projeto consiste em uma landing page para uma transportadora fictícia, chamada Trail Life.
 
+Esta landing page oferece uma funcionalidade que permite aos visitantes enviar e-mails para entrar em contato com a empresa, proporcionando uma forma eficaz de comunicação com a Trail Life Transportadora.
+
 A landing page é composta por quatro seções principais:
 
 - Demanda: Esta seção apresenta a empresa Trail Life e suas qualidades de transporte de cargas.
