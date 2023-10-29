@@ -28,7 +28,6 @@ A landing page é composta por quatro seções principais:
 - Serviços: Esta seção fornece mais informações sobre os serviços oferecidos pela Trail Life.
 - Funcionalidades: Esta seção destaca as funcionalidades da que a empresa oferece para motoristas e clientes.
 - Contato: Esta seção fornece feature de contato com a Trail Life por email.
-- O formulário de cotação está localizado na seção Demanda. O formulário é composto pelos seguintes campos:
 
 ## Ferramentas 
 
