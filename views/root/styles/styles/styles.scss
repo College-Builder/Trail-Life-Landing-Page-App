@@ -185,13 +185,14 @@ div.default-form-input-container {
 		span.default-input__error-message {
 			display: block;
 			margin-top: 8px;
-			font-size: 15.2px;
+			margin-bottom: 12px;
+			font-size: 14px;
 			color: red;
 			filter: opacity(0%);
 			transition: ease-in-out 0.35s;
 
 			i {
-				margin-right: 5.6px;
+				margin-right: 4px;
 				font-style: normal;
 			}
 		}
