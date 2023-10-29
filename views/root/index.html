@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--v1.0.0-->
 <html lang="pt-BR">
   <head>
@@ -41,6 +41,10 @@
     ></script>
     <script
       defer
+      src="https://college-builder.s3.amazonaws.com/trail-life/landing-page/scripts/local-modules.js"
+    ></script>
+    <script
+      defer
       src="https://college-builder.s3.amazonaws.com/trail-life/landing-page/scripts/header.js"
     ></script>
     <script
@@ -51,11 +55,15 @@
     <!---->
     <link
       rel="stylesheet"
-      href="https://college-builder.s3.amazonaws.com/trail-life/landing-page/styles/index/index.css"
+      href="https://college-builder.s3.amazonaws.com/trail-life/landing-page/styles/styles/styles.css"
     />
     <link
       rel="stylesheet"
-      href="https://college-builder.s3.amazonaws.com/trail-life/landing-page/styles/styles/styles.css"
+      href="https://college-builder.s3.amazonaws.com/trail-life/landing-page/styles/local-styles/local-styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://college-builder.s3.amazonaws.com/trail-life/landing-page/styles/index/index.css"
     />
     <link
       rel="stylesheet"
@@ -198,13 +206,7 @@
       <!---->
       <div
         id="demanda"
-        class="
-          default-hrz-padding
-          section-separator
-          --big-section-separator
-          default-section
-          section-3
-        "
+        class="default-hrz-padding section-separator --big-section-separator default-section section-3"
       >
         <h2 class="font-size-controller">Atendemos a sua demanda</h2>
         <div>
@@ -290,12 +292,7 @@
           </div>
         </div>
         <div class="default-hrz-padding default-button-container">
-          <a
-            class="default-button default-button-margin --red-button"
-            href="#contato"
-          >
-            Contato
-          </a>
+          <a class="--red-button" href="#contato"> Contato </a>
         </div>
       </div>
       <!---->
@@ -346,22 +343,16 @@
       <!---->
       <div
         id="funcionalidades"
-        class="
-          default-hrz-padding
-          section-separator
-          --big-section-separator
-          default-section
-          section-6
-        "
+        class="default-hrz-padding section-separator --big-section-separator default-section section-6"
       >
         <h2 class="font-size-controller">Funcionalidades</h2>
-        <div>
-          <div section-6-accordion>
+        <div class="default-accordions-container">
+          <div accordion-container>
             <button>
               Cliente
               <i class="bi bi-caret-down"></i>
             </button>
-            <div section-6-accordion__text-container>
+            <div accordion-container__text-container>
               <div>
                 <span>
                   <p>
@@ -391,12 +382,12 @@
               </div>
             </div>
           </div>
-          <div section-6-accordion>
+          <div accordion-container>
             <button>
               Motorista
               <i class="bi bi-caret-down"></i>
             </button>
-            <div section-6-accordion__text-container>
+            <div accordion-container__text-container>
               <div>
                 <span>
                   <p>
@@ -418,12 +409,12 @@
               </div>
             </div>
           </div>
-          <div section-6-accordion>
+          <div accordion-container>
             <button>
               Administrativo
               <i class="bi bi-caret-down"></i>
             </button>
-            <div section-6-accordion__text-container>
+            <div accordion-container__text-container>
               <div>
                 <span>
                   <p>
@@ -498,7 +489,7 @@
               </div>
 
               <div class="default-button-container">
-                <a class="default-button default-button-margin --green-button">
+                <a class="--green-button">
                   <i class="bi bi-whatsapp"></i>
                   WhatsApp
                 </a>
@@ -506,12 +497,17 @@
             </div>
           </div>
           <div email-form-container>
-            <form email-form-container__form>
+            <form
+              email-form-container__form
+              class="default-form"
+              method="POST"
+              action="/trail-life/home-page/api/send-email"
+            >
               <div>
-                <div>
+                <div class="default-form__make-row">
                   <div class="default-form-input-container">
                     <label for="email-form-name">Nome:</label>
-                    <div default-input class="default-input">
+                    <div default-input>
                       <input
                         placeholder="Nome"
                         type="text"
@@ -524,9 +520,10 @@
                       </span>
                     </div>
                   </div>
+
                   <div class="default-form-input-container">
                     <label for="email-form-phone">Celular:</label>
-                    <div default-input class="default-input">
+                    <div default-input>
                       <input
                         phone-input
                         placeholder="+55 (99) 9999-99999"
@@ -543,7 +540,7 @@
                 </div>
                 <div class="default-form-input-container">
                   <label for="email-form-email">Email:</label>
-                  <div default-input class="default-input">
+                  <div default-input>
                     <input
                       placeholder="xxx@x.com"
                       type="text"
@@ -558,7 +555,7 @@
                 </div>
                 <div class="default-form-input-container">
                   <label for="email-form-message">Mensagem:</label>
-                  <div default-input class="default-input">
+                  <div default-input>
                     <textarea
                       placeholder="Mensagem"
                       name="message"
@@ -573,10 +570,7 @@
               </div>
               <div>
                 <div class="default-button-container">
-                  <button
-                    submit-email-button
-                    class="default-button default-button-margin --red-button"
-                  >
+                  <button class="--red-button">
                     <span class="default-button__loading">
                       <i class="bi bi-arrow-repeat"></i>
                     </span>
