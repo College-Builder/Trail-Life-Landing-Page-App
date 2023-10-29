@@ -170,19 +170,6 @@ function handleAccordionContainer() {
   }
 }
 
-function handleFormErrorMessageResponse(label, message) {
-  window.document.querySelectorAll('div[default-input]').forEach((div) => {
-    div.classList.remove('--show-error');
-  });
-
-  const container = window.document.querySelector(
-    `input[name='${label}']`,
-  ).parentElement;
-
-  container.classList.add('--show-error');
-  container.querySelector('i[error-message]').innerText = message;
-}
-
 function handleFormFinalResponse(error) {
   const statusContainer = window.document.querySelector(
     'div[email-form-status-container]',
