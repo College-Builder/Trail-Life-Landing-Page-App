@@ -1,25 +1,25 @@
-h1.global__font-size-controller {
+h1.font-size-controller {
   font-size: 65px;
 }
 
-h2.global__font-size-controller {
+h2.font-size-controller {
   font-size: 30.4px;
 }
 
-h3.global__font-size-controller {
+h3.font-size-controller {
   font-size: 20px;
 }
 
-span.global__font-size-controller {
+span.font-size-controller {
   font-size: 18.4px;
 }
 
 @media (min-width: 1300px) {
-  h2.global__font-size-controller {
+  h2.font-size-controller {
     font-size: 35.2px;
   }
 
-  h3.global__font-size-controller {
+  h3.font-size-controller {
     font-size: 24px;
   }
 }
@@ -34,7 +34,7 @@ $default-padding-xxlarge: 200px;
 $default-padding-xxxlarge: 256px;
 $default-padding-xxxxlarge: 392px;
 
-.global__small-hrz-padding {
+.small-hrz-padding {
   padding-left: calc(#{$default-padding-small} / 2);
   padding-right: calc(#{$default-padding-small} / 2);
 
@@ -64,7 +64,7 @@ $default-padding-xxxxlarge: 392px;
   }
 }
 
-.global__default-hrz-padding {
+.default-hrz-padding {
   padding-left: $default-padding-small;
   padding-right: $default-padding-small;
 

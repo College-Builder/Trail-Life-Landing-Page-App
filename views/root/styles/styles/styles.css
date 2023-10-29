@@ -7,69 +7,12 @@
   --dark-gray: rgb(51, 51, 51);
 }
 
-a.default-logo {
-  display: block;
-}
-a.default-logo img {
-  height: 24px;
-}
-
-@media (min-width: 375px) {
-  a.default-logo img {
-    height: 28px;
-  }
-}
-@media (min-width: 375px) {
-  a.default-logo img {
-    height: 32px;
-  }
-}
-/**/
-/**/
-.section-separator {
-  margin-top: 144px;
-}
-
-@media (min-width: 1300px) {
-  .section-separator {
-    margin-top: 180px;
-  }
-}
-div.default-section > h2 {
-  text-align: center;
-  margin-bottom: 56px;
-}
-
-@media (min-width: 1300px) {
-  div.default-section > h2 {
-    margin-bottom: 72px;
-  }
-}
-/**/
-/**/
-div.default-button-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 56px;
-}
-div.default-button-container button,
-div.default-button-container a {
-  max-width: 400px;
-}
-
-@media (min-width: 1300px) {
-  div.default-button-container {
-    margin-top: 72px;
-  }
-}
 /**/
 /**/
 .--green-button {
   background-color: transparent;
   color: var(--green);
   border: 2px solid var(--green);
-  transition: ease-in-out 0.35s;
   transition: ease-in-out 0.35s;
 }
 .--green-button:hover {
@@ -82,7 +25,6 @@ div.default-button-container a {
   color: var(--red);
   border: 2px solid var(--red);
   transition: ease-in-out 0.35s;
-  transition: ease-in-out 0.35s;
 }
 .--red-button:hover {
   background-color: var(--red);
@@ -94,32 +36,61 @@ div.default-button-container a {
   color: var(--yellow);
   border: 2px solid var(--yellow);
   transition: ease-in-out 0.35s;
-  transition: ease-in-out 0.35s;
 }
 .--yellow-button:hover {
   background-color: var(--yellow);
   color: white;
 }
 
-.default-button {
+div.default-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 56px;
+}
+div.default-button-container button,
+div.default-button-container a {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
   width: 100%;
   border-radius: 8px;
   padding: 16px 24px;
   font-size: 18.4px;
   font-weight: light;
   text-align: center;
+  position: relative;
 }
-.default-button.--loading {
+div.default-button-container button.--pre-loading,
+div.default-button-container a.--pre-loading {
+  pointer-events: none;
+}
+div.default-button-container button.--loading,
+div.default-button-container a.--loading {
   color: var(--gray);
   border: solid 2px var(--gray);
   pointer-events: none;
 }
-.default-button.--loading span.default-button__loading {
+div.default-button-container button.--loading:hover,
+div.default-button-container a.--loading:hover {
+  background-color: transparent;
+}
+div.default-button-container button.--loading span.default-button__loading,
+div.default-button-container a.--loading span.default-button__loading {
   display: inline-block;
 }
-.default-button span.default-button__loading {
+div.default-button-container button span.default-button__loading,
+div.default-button-container a span.default-button__loading {
   display: none;
   animation: spinner 1s forwards linear infinite;
+}
+div.default-button-container button span.default-button__loading i,
+div.default-button-container a span.default-button__loading i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes spinner {
@@ -130,13 +101,37 @@ div.default-button-container a {
     transform: rotate(360deg);
   }
 }
-@media (min-width: 900px) {
-  .default-button-margin {
-    font-size: 20px;
+@media (min-width: 1300px) {
+  div.default-button-container {
+    margin-top: 72px;
   }
 }
 /**/
 /**/
+form.default-form > div:first-of-type {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+form.default-form > div:first-of-type div.default-form__make-row {
+  display: flex;
+  flex-direction: column;
+}
+form.default-form > div:last-of-type {
+  display: flex;
+  justify-content: center;
+}
+form.default-form > div:last-of-type div {
+  width: 100%;
+  max-width: 400px;
+}
+
+@media (min-width: 900px) {
+  form.default-form > div:first-of-type div.default-form__make-row {
+    flex-direction: row;
+    gap: 16px;
+  }
+}
 div.default-form-input-container {
   width: 100%;
   display: flex;
@@ -147,26 +142,22 @@ div.default-form-input-container label {
   margin-left: 8px;
   font-size: 17.6px;
 }
-div.default-form-input-container span.default-input__error-message {
-  margin-left: 8px;
-}
-
-div.default-input {
+div.default-form-input-container > div {
   width: 100%;
 }
-div.default-input.--show-error span.default-input__error-message {
+div.default-form-input-container > div.--show-error span.default-input__error-message {
   filter: opacity(100%);
 }
-div.default-input.--show-error input,
-div.default-input.--show-error textarea {
+div.default-form-input-container > div.--show-error input,
+div.default-form-input-container > div.--show-error textarea {
   border: 1px solid red;
 }
-div.default-input.--show-error input::placeholder,
-div.default-input.--show-error textarea::placeholder {
+div.default-form-input-container > div.--show-error input::placeholder,
+div.default-form-input-container > div.--show-error textarea::placeholder {
   color: red;
 }
-div.default-input input,
-div.default-input textarea {
+div.default-form-input-container > div input,
+div.default-form-input-container > div textarea {
   width: 100%;
   max-width: 100%;
   min-width: 100%;
@@ -176,43 +167,26 @@ div.default-input textarea {
   font-size: 16px;
   padding: 16px;
 }
-div.default-input textarea {
+div.default-form-input-container > div textarea {
   width: 120px;
   min-height: 120px;
   max-height: 220px;
 }
-div.default-input span.default-input__error-message {
+div.default-form-input-container > div span.default-input__error-message {
   display: block;
   margin-top: 8px;
-  font-size: 15.2px;
+  margin-bottom: 12px;
+  font-size: 14px;
   color: red;
   filter: opacity(0%);
   transition: ease-in-out 0.35s;
 }
-div.default-input span.default-input__error-message i {
-  margin-right: 5.6px;
+div.default-form-input-container > div span.default-input__error-message i {
+  margin-right: 4px;
   font-style: normal;
 }
-
-/**/
-/**/
-button.defaut-move-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--red);
-  border-radius: 100%;
-  background-color: white;
-  width: 28px;
-  height: 28px;
-  transition: ease-in-out 0.35s;
-}
-button.defaut-move-button.--off {
-  filter: opacity(0%);
-  pointer-events: none;
-}
-button.defaut-move-button i {
-  font-size: 40px;
+div.default-form-input-container span.default-input__error-message {
+  margin-left: 8px;
 }
 
 /*# sourceMappingURL=styles.css.map */

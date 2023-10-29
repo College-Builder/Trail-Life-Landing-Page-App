@@ -1,11 +1,9 @@
-import * as modules from './modules.js';
-
 (() => {
   const template = window.document.querySelector(
     'template[section-1__image-slider-template]',
   );
 
-  modules.section1Builder.forEach((item) => {
+  section1Builder.forEach((item) => {
     const templateUsable = template.content.cloneNode(true).children[0];
 
     templateUsable.setAttribute('href', item.href);
@@ -19,10 +17,6 @@ import * as modules from './modules.js';
 (() => {
   const div = window.document.querySelector('div[image-slider-container]');
 
-  if (!div) {
-    return;
-  }
-
   const controller = {
     imageSliderContainer: div,
     imageSlider: div.querySelector('div[image-slider-container__image-slider]'),
@@ -34,9 +28,9 @@ import * as modules from './modules.js';
 
   setInterval(() => {
     if (controller.goingLeft) {
-      modules.handlePropagandaScroll(controller, true);
+      handlePropagandaScroll(controller, true);
     } else {
-      modules.handlePropagandaScroll(controller, false);
+      handlePropagandaScroll(controller, false);
     }
   }, 10000);
 
@@ -63,11 +57,7 @@ import * as modules from './modules.js';
 
         controller.isMoving = true;
 
-        modules.handlePropagandaScroll(
-          controller,
-          index === 0 ? false : true,
-          true,
-        );
+        handlePropagandaScroll(controller, index === 0 ? false : true, true);
 
         restoreIsMoving = setTimeout(() => {
           controller.isMoving = false;
@@ -83,7 +73,7 @@ import * as modules from './modules.js';
 })();
 
 (() => {
-  modules.buildSection4Builder();
+  buildSection4Builder(section4Builder);
 
   window.addEventListener('resize', () => {
     window.document
@@ -92,7 +82,7 @@ import * as modules from './modules.js';
         div.remove();
       });
 
-    modules.buildSection4Builder();
+    buildSection4Builder(section4Builder);
   });
 })();
 
@@ -216,111 +206,49 @@ import * as modules from './modules.js';
 })();
 
 (() => {
-  var controller = [];
+  handleAccordionContainer();
+})();
 
-  window.document
-    .querySelectorAll('div[section-6-accordion]')
-    .forEach((div, index) => {
-      const textContainer = div.querySelector(
-        'div[section-6-accordion__text-container]',
-      );
+(() => {
+  setPhoneInputProperties(window.document.querySelector('input[phone-input]'));
+})();
 
-      const computedHeight = getComputedStyle(textContainer).height;
+(() => {
+  const form = window.document.querySelector(
+    'form[email-form-container__form]',
+  );
 
-      controller.push({
-        state: false,
-        textContainer,
-        computedHeight,
-      });
+  const method = form.getAttribute('method');
+  const action = form.getAttribute('action');
+  const button = form.querySelector('button');
 
-      textContainer.style.height = '0px';
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-      div.querySelector('button').addEventListener('click', () => {
-        controller.forEach((_, _index) => {
-          if (index === _index) {
-            return;
-          }
+    const form = {
+      name: e.target.elements.name.value,
+      phone: e.target.elements.phone.value.replace(/\D/g, ''),
+      email: e.target.elements.email.value,
+      message: e.target.elements.message.value,
+    };
 
-          closeAccordion(_index);
-        });
+    handleButtonLoading(true, button);
 
-        controller[index].state ? closeAccordion(index) : openAccordion(index);
-      });
+    const req = await fetch(action, {
+      method,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form),
     });
 
-  window.addEventListener('resize', () => {
-    controller.forEach((_, index) => {
-      const closed = controller[index].textContainer.style.height === '0px';
+    if (req.status === 400) {
+      const { label, message } = await req.json();
 
-      controller[index].textContainer.style.height = 'auto';
-
-      controller[index].computedHeight = getComputedStyle(
-        controller[index].textContainer,
-      ).height;
-
-      if (closed) {
-        controller[index].textContainer.style.height = '0px';
-      } else {
-        controller[index].textContainer.style.height =
-          controller[index].computedHeight;
-      }
-    });
+      handleFormErrorMessageResponse(label, message);
+      handleButtonLoading(false, button);
+    } else {
+      handleFormFinalResponse(req.status === 200 ? false : true);
+    }
   });
-
-  function openAccordion(index) {
-    controller[index].textContainer.style.height =
-      controller[index].computedHeight;
-    controller[index].textContainer.parentNode.classList.add('--open');
-    controller[index].state = true;
-  }
-
-  function closeAccordion(index) {
-    controller[index].textContainer.style.height = '0px';
-    controller[index].textContainer.parentNode.classList.remove('--open');
-    controller[index].state = false;
-  }
-})();
-
-(() => {
-  const phoneInput = window.document.querySelector('input[phone-input]');
-
-  modules.setPhoneInputProperties(phoneInput);
-})();
-
-(() => {
-  window.document
-    .querySelector('form[email-form-container__form]')
-    .addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const form = {
-        name: e.target.elements.name.value,
-        phone: e.target.elements.phone.value.replace(/\D/g, ''),
-        email: e.target.elements.email.value,
-        message: e.target.elements.message.value,
-      };
-
-      const showLoading = setTimeout(() => {
-        modules.handleFormLoading(true, 'submit-email-button');
-      }, 200);
-
-      const req = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(form),
-      });
-
-      if (req.status === 200 || req.status === 500) {
-        modules.handleFormFinalResponse(req.status);
-      } else {
-        clearTimeout(showLoading);
-
-        const { label, message } = await req.json();
-
-        modules.handleFormErrorMessageResponse(label, message);
-        modules.handleFormLoading(false, 'submit-email-button');
-      }
-    });
 })();

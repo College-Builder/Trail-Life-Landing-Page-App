@@ -21,7 +21,7 @@ header > div > div:first-of-type > a img {
 }
 header > div > div:first-of-type > button {
   color: var(--red);
-  font-size: 22.4px;
+  font-size: 28px;
 }
 header > div > div:first-of-type > ul {
   display: none;
@@ -98,7 +98,7 @@ button[mobile-header-menu-button--close].--off {
     height: 28px;
   }
   header > div:first-of-type > div:first-of-type > button {
-    font-size: 24px;
+    font-size: 30px;
   }
 }
 @media (min-width: 856px) {
