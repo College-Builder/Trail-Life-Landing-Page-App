@@ -82,8 +82,9 @@ AWS_SES_UAA_EMAIL_TEMPLATE=ses-template-name (modelo de e-mail a ser enviado ao 
 
 ## License
 
-This script is licensed under the GNU General Public License, Version 3, 29 June 2007.
+This script is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 Feel free to use, modify, and distribute this script as per the terms of the license.
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://opensource.org/licenses/GPL-3.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
