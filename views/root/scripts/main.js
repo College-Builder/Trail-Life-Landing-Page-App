@@ -219,14 +219,14 @@ handleAccordionContainer();
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    handleButtonLoading(true, button);
+    
     const form = {
       name: e.target.elements.name.value,
       phone: e.target.elements.phone.value.replace(/\D/g, ''),
       email: e.target.elements.email.value,
       message: e.target.elements.message.value,
     };
-
-    handleButtonLoading(true, button);
 
     const req = await fetch(action, {
       method,
