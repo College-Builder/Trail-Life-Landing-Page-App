@@ -5,7 +5,7 @@ import Module from './module';
 const rootApi = express.Router();
 
 rootApi.post(
-	'/send-email',
+	'/email',
 	Module.verifyPostBodyForEmailMiddleware,
 	async (req, res) => {
 		const { name, phone, email, message } = req.body;
