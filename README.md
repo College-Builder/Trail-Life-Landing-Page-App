@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://collegebuilder.easyvirtual.net/trail-life/home-page">
+  <a href="https://collegebuilder.easyvirtual.net/trail-life/h/home-page">
     <img src='https://college-builder.s3.amazonaws.com/trail-life/landing-page/assets/images/brand/icon.png' height='140'>
   </a>
 </div>
